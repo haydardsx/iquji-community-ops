@@ -1,0 +1,345 @@
+/* 软件设置分组与主题卡片。 */
+
+.ops-theme-section .iquji-settings-section__rows {
+  padding: var(--iquji-space-4);
+}
+
+.ops-theme-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--iquji-space-4);
+}
+
+.ops-theme-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--iquji-space-2);
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+  text-align: center;
+}
+
+.ops-theme-card:hover:not(:disabled) {
+  background: transparent;
+}
+
+.ops-theme-card-preview {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--iquji-radius-panel);
+  border: 2px solid var(--iquji-color-border);
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+.ops-theme-card:hover .ops-theme-card-preview {
+  border-color: var(--iquji-color-muted);
+}
+
+.ops-theme-card.is-active .ops-theme-card-preview {
+  border-color: var(--iquji-color-primary, #3b82f6);
+  box-shadow: 0 0 0 1px var(--iquji-color-primary, #3b82f6);
+}
+
+.ops-theme-card-label {
+  font-size: var(--iquji-font-size-caption);
+  line-height: var(--iquji-line-height-caption);
+  font-weight: 500;
+  color: var(--iquji-color-muted);
+}
+
+.ops-theme-card.is-active .ops-theme-card-label {
+  color: var(--iquji-color-primary, #3b82f6);
+  font-weight: 600;
+}
+
+.theme-mock-system {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.theme-mock-left {
+  flex: 1;
+  color-scheme: dark;
+  background: #18181b;
+  padding: 10px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.theme-mock-right {
+  flex: 1;
+  color-scheme: light;
+  background: #ffffff;
+  padding: 10px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.theme-mock-light {
+  width: 100%;
+  height: 100%;
+  color-scheme: light;
+  background: #ffffff;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.theme-mock-dark {
+  width: 100%;
+  height: 100%;
+  color-scheme: dark;
+  background: #18181b;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mock-window-bar {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.mock-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #71717a;
+}
+
+.mock-content-line {
+  height: 6px;
+  border-radius: var(--iquji-radius-control);
+  background: #71717a;
+  opacity: 0.35;
+  width: 75%;
+}
+
+.mock-content-line.short {
+  width: 45%;
+}
+
+/* 分组设置卡片的容器与行排版。 */
+.ops-settings-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iquji-space-2);
+  margin-bottom: var(--iquji-space-4);
+  width: 100%;
+}
+
+.ops-settings-group__title {
+  color: var(--iquji-color-muted);
+  font-size: var(--iquji-font-size-caption);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: var(--iquji-line-height-caption);
+  margin: 0;
+  padding-left: 2px;
+  text-transform: uppercase;
+}
+
+.ops-settings-card {
+  background: var(--iquji-color-surface);
+  border: 1px solid var(--iquji-color-border);
+  border-radius: var(--iquji-radius-panel);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%;
+}
+
+.ops-setting-row {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  gap: var(--iquji-space-4);
+  justify-content: space-between;
+  min-height: 48px;
+  padding: var(--iquji-space-3) var(--iquji-space-4);
+  transition: background 150ms ease;
+}
+
+.ops-setting-row:not(:last-child) {
+  border-bottom: 1px solid var(--iquji-color-border-subtle, var(--iquji-color-border));
+}
+
+.ops-setting-row__meta {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: var(--iquji-space-1);
+  min-width: 0;
+}
+
+.ops-setting-row__label {
+  color: var(--iquji-color-text);
+  font-size: var(--iquji-font-size-body-sm);
+  font-weight: 600;
+  line-height: var(--iquji-line-height-body-sm);
+}
+
+.ops-setting-row__description {
+  color: var(--iquji-color-muted);
+  font-size: var(--iquji-font-size-caption);
+  line-height: var(--iquji-line-height-caption);
+}
+
+.ops-setting-row__control {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  gap: var(--iquji-space-2);
+  justify-content: flex-end;
+}
+
+/* 窗口提供可用空间，导航分栏与窄屏换行由 Shared 设置布局负责。 */
+.ops-settings-fullscreen-container {
+  display: grid;
+  flex: 1 1 auto;
+  grid-template: minmax(0, 1fr) / minmax(0, 1fr);
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* 域名层级树与证书合并展示 */
+.ops-domain-tree-cell {
+  align-items: center;
+  display: inline-flex;
+  gap: var(--iquji-space-2);
+  min-height: 28px;
+}
+
+.ops-domain-tree-toggle {
+  align-items: center;
+  background: transparent;
+  border: none;
+  border-radius: var(--iquji-radius-control);
+  color: var(--iquji-color-muted);
+  cursor: pointer;
+  display: inline-flex;
+  height: 22px;
+  justify-content: center;
+  padding: 0;
+  transition:
+    color 150ms ease,
+    background 150ms ease;
+  width: 22px;
+}
+
+.ops-domain-tree-toggle:hover {
+  background: var(--iquji-color-surface-hover);
+  color: var(--iquji-color-text);
+}
+
+.ops-domain-tree-toggle:focus-visible {
+  outline: var(--iquji-focus-ring);
+  outline-offset: -1px;
+}
+
+.ops-domain-tree-branch {
+  color: var(--iquji-color-muted);
+  font-family: var(--iquji-font-mono);
+  font-size: var(--iquji-font-size-caption);
+  opacity: 0.7;
+  user-select: none;
+}
+
+.ops-domain-tree-leaf-spacer {
+  display: inline-block;
+  width: 22px;
+}
+
+.ops-domain-tree-icon {
+  color: var(--iquji-color-muted);
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.ops-domain-tree-name {
+  align-items: baseline;
+  display: inline-flex;
+  gap: 1px;
+  font-family: var(--iquji-font-mono);
+  font-size: var(--iquji-font-size-body-sm);
+}
+
+.ops-domain-tree-subpart {
+  color: var(--iquji-color-text);
+  font-weight: 600;
+}
+
+.ops-domain-cert-cell {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iquji-space-1);
+}
+
+.ops-domain-orphan-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iquji-space-3);
+  margin-top: var(--iquji-space-6);
+  padding-top: var(--iquji-space-4);
+  border-top: 1px dashed var(--iquji-color-border);
+}
+
+.ops-domain-orphan-header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ops-domain-orphan-title {
+  color: var(--iquji-color-text);
+  font-size: var(--iquji-font-size-body-sm);
+  font-weight: 600;
+}
+
+.ops-settings-value-copy {
+  align-items: center;
+  display: inline-flex;
+  gap: var(--iquji-space-2);
+  justify-content: flex-end;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.ops-settings-value-copy.is-multiline {
+  align-items: flex-start;
+}
+
+.ops-settings-value-code {
+  color: var(--iquji-color-text);
+  font-family: var(--iquji-font-mono);
+  font-size: var(--iquji-font-size-caption);
+  line-height: var(--iquji-line-height-caption);
+  min-width: 0;
+  overflow-wrap: anywhere;
+  text-align: right;
+  word-break: break-word;
+}
+
+.ops-settings-banner-slot,
+.ops-settings-loading-slot {
+  padding: var(--iquji-space-4);
+}

@@ -1,0 +1,57 @@
+{
+  "id": "demo-frontend",
+  "name": "演示前端",
+  "description": "从公开 Git 仓库构建演示页面。选择 Jenkins 和部署节点，将三个运行变量绑定到后端的两个定向入口和加权入口。",
+  "config": {
+    "sourceConfig": {
+      "provider": "git",
+      "repositoryUrl": "https://github.com/haydardsx/demo_deploy_frontend.git",
+      "ref": "main",
+      "refType": "branch",
+      "jenkinsfilePath": "Jenkinsfile",
+      "sourcePath": "."
+    },
+    "swarmRuntime": {
+      "services": [
+        {
+          "slotKey": "frontend",
+          "replicas": 1
+        }
+      ],
+      "containerPort": 80,
+      "ports": [
+        {
+          "name": "web",
+          "targetPort": 80,
+          "protocol": "http"
+        }
+      ]
+    },
+    "environmentVariables": [
+      {
+        "key": "DEMO_SERVER1_URL",
+        "stage": "runtime",
+        "scope": "global",
+        "valueSource": "output_ref",
+        "isRequired": true,
+        "description": "后端第一个槽位的 HTTPS 入口。"
+      },
+      {
+        "key": "DEMO_SERVER2_URL",
+        "stage": "runtime",
+        "scope": "global",
+        "valueSource": "output_ref",
+        "isRequired": true,
+        "description": "后端第二个槽位的 HTTPS 入口。"
+      },
+      {
+        "key": "DEMO_GATEWAY_URL",
+        "stage": "runtime",
+        "scope": "global",
+        "valueSource": "output_ref",
+        "isRequired": true,
+        "description": "后端加权路由的 HTTPS 入口。"
+      }
+    ]
+  }
+}

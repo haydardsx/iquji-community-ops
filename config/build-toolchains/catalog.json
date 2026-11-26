@@ -1,0 +1,59 @@
+{
+  "catalogVersion": "2026-05-06",
+  "items": [
+    {
+      "key": "bun",
+      "name": "Bun",
+      "versions": ["1.3.14", "1.3", "1.2", "1.1"],
+      "defaultVersion": "1.3.14",
+      "dockerImageTemplate": "oven/bun:${version}-alpine",
+      "defaultBuildCommand": "bun install --frozen-lockfile && bun run build",
+      "defaultArtifactPath": "dist"
+    },
+    {
+      "key": "java",
+      "name": "Java",
+      "versions": ["21", "17", "11"],
+      "defaultVersion": "21",
+      "dockerImageTemplate": "eclipse-temurin:${version}-jdk",
+      "defaultBuildCommand": "./gradlew build",
+      "defaultArtifactPath": "build/libs"
+    },
+    {
+      "key": "go",
+      "name": "Go",
+      "versions": ["1.26.11"],
+      "defaultVersion": "1.26.11",
+      "dockerImageTemplate": "golang:${version}-alpine",
+      "defaultBuildCommand": "go build ./...",
+      "defaultArtifactPath": "."
+    },
+    {
+      "key": "python",
+      "name": "Python",
+      "versions": ["3.13", "3.12", "3.11"],
+      "defaultVersion": "3.12",
+      "dockerImageTemplate": "python:${version}-alpine",
+      "defaultBuildCommand": "python -m compileall .",
+      "defaultArtifactPath": "."
+    },
+    {
+      "key": "none",
+      "name": "无需编译",
+      "versions": ["none"],
+      "defaultVersion": "none",
+      "dockerImageTemplate": "",
+      "defaultBuildCommand": "true",
+      "defaultArtifactPath": "."
+    },
+    {
+      "key": "custom",
+      "name": "自定义",
+      "versions": ["custom"],
+      "defaultVersion": "custom",
+      "dockerImageTemplate": "",
+      "defaultBuildCommand": "bun install --frozen-lockfile && bun run build",
+      "defaultArtifactPath": "dist"
+    }
+  ]
+}

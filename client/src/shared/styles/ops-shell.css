@@ -1,0 +1,174 @@
+.ops-titlebar {
+  align-items: center;
+  background: var(--iquji-color-canvas);
+  border-bottom: 1px solid var(--iquji-color-border);
+  box-sizing: border-box;
+  color: var(--iquji-color-text);
+  display: flex;
+  height: 44px;
+  min-height: 44px;
+  padding: 0 var(--iquji-space-3);
+  /* 为 macOS 原生窗口控件预留空间。 */
+  padding-left: 82px;
+  position: relative;
+  user-select: none;
+  width: 100%;
+  z-index: 20;
+}
+
+.ops-titlebar-controls {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 6px;
+}
+
+.ops-titlebar-history {
+  align-items: center;
+  display: flex;
+  gap: 2px;
+}
+
+.ops-titlebar-toggle-btn {
+  background: var(--iquji-color-surface-muted, rgba(0, 0, 0, 0.05));
+  border: 1px solid var(--iquji-color-border);
+  border-radius: var(--iquji-radius-control);
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 26px;
+  min-width: 26px;
+  padding: 0 5px;
+  transition:
+    background 150ms ease,
+    border-color 150ms ease;
+}
+
+.ops-titlebar-toggle-btn:hover {
+  background: var(--iquji-color-surface-hover, rgba(0, 0, 0, 0.08));
+  border-color: var(--iquji-color-muted);
+}
+
+.ops-titlebar-divider {
+  background: var(--iquji-color-border);
+  flex: 0 0 1px;
+  height: 14px;
+  margin: 0 8px;
+  width: 1px;
+}
+
+/* 工作区标签。 */
+.ops-titlebar-tab-capsule {
+  align-items: center;
+  background: var(--iquji-color-surface-hover, rgba(0, 0, 0, 0.04));
+  border: 1px solid var(--iquji-color-border);
+  border-radius: var(--iquji-radius-control);
+  box-sizing: border-box;
+  color: var(--iquji-color-text);
+  display: inline-flex;
+  font-size: var(--iquji-font-size-caption);
+  line-height: var(--iquji-line-height-caption);
+  font-weight: 500;
+  gap: var(--iquji-space-1);
+  height: 26px;
+  max-width: 260px;
+  padding: 0 10px;
+  transition: background 150ms ease;
+}
+
+.ops-titlebar-tab-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ops-titlebar-spacer {
+  flex: 1 1 auto;
+  min-width: 12px;
+}
+
+.ops-titlebar-actions {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  gap: var(--iquji-space-2);
+}
+
+.ops-titlebar-status-capsule {
+  align-items: center;
+  background: var(--iquji-color-surface-muted);
+  border: 1px solid var(--iquji-color-border-subtle, var(--iquji-color-border));
+  border-radius: 999px;
+  color: var(--iquji-color-muted);
+  display: inline-flex;
+  font-size: var(--iquji-font-size-micro);
+  line-height: var(--iquji-line-height-micro);
+  gap: 6px;
+  height: 22px;
+  padding: 0 8px;
+}
+
+.ops-shell-main {
+  box-sizing: border-box;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+  overflow: auto;
+  position: relative;
+}
+
+.ops-shell-main:has(> .ops-workbench-fill) {
+  overflow: clip;
+}
+
+.ops-workbench-fill {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+  width: 100%;
+}
+
+.ops-inner-workbench {
+  border: none;
+  flex: 1 1 auto;
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+  width: 100%;
+}
+
+.ops-inner-workbench__scope {
+  background: var(--iquji-color-surface-muted);
+  border-right: 1px solid var(--iquji-color-border);
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.ops-workbench__center {
+  background: var(--iquji-color-canvas);
+  box-sizing: border-box;
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+  overflow: auto;
+  padding: var(--iquji-space-4);
+}
+
+.ops-empty-surface {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  min-height: 280px;
+  padding: var(--iquji-space-4);
+}

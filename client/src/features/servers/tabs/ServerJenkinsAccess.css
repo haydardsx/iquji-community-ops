@@ -1,0 +1,57 @@
+/* Jenkins 访问入口抽屉样式 */
+.ops-jenkins-access-hero {
+  align-items: center;
+  background: var(--iquji-color-fill-secondary, rgba(0, 0, 0, 0.03));
+  border: 1px solid var(--iquji-color-border-subtle);
+  border-radius: var(--iquji-radius-panel, 8px);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iquji-space-3);
+  justify-content: space-between;
+  padding: var(--iquji-space-3) var(--iquji-space-4);
+}
+
+.ops-jenkins-access-hero__lead {
+  align-items: center;
+  display: flex;
+  flex: 1 1 200px;
+  gap: var(--iquji-space-2);
+  min-width: 0;
+}
+
+.ops-jenkins-access-hero__icon {
+  color: var(--iquji-color-primary, #2563eb);
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.ops-jenkins-access-hero__url {
+  color: var(--iquji-color-text);
+  font-family: var(--iquji-font-mono, monospace);
+  font-size: var(--iquji-font-size-body-sm);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ops-jenkins-access-hero__actions {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  gap: var(--iquji-space-2);
+}
+
+.ops-jenkins-access-meta {
+  align-items: center;
+  color: var(--iquji-color-muted, #64748b);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: var(--iquji-font-size-caption);
+  gap: var(--iquji-space-2);
+  margin-top: calc(-1 * var(--iquji-space-2));
+}
+
+.ops-jenkins-access-meta__dot {
+  opacity: 0.5;
+}

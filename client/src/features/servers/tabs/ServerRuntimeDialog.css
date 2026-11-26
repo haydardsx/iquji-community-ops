@@ -1,0 +1,109 @@
+.ops-server-runtime-dialog__facts {
+  background: var(--iquji-color-surface-muted);
+  border: 1px solid var(--iquji-color-border);
+  border-radius: var(--iquji-radius-control);
+  display: grid;
+  gap: var(--iquji-space-3);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+  padding: var(--iquji-space-3) var(--iquji-space-4);
+}
+
+.ops-server-runtime-dialog__facts dt {
+  color: var(--iquji-color-muted);
+  font-size: var(--iquji-font-size-caption);
+}
+
+.ops-server-runtime-dialog__facts dd {
+  margin: var(--iquji-space-1) 0 0;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 420px) {
+  .ops-server-runtime-dialog__facts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* 服务器活动操作横幅 */
+.ops-server-active-banner-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iquji-space-2, 8px);
+  margin-bottom: var(--iquji-space-3, 12px);
+}
+
+.ops-server-active-banner {
+  align-items: center;
+  background: var(--iquji-color-info-fill);
+  border: 1px solid var(--iquji-color-info-border);
+  border-radius: var(--iquji-radius-control);
+  color: var(--iquji-color-info-text);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iquji-space-3);
+  justify-content: space-between;
+  padding: var(--iquji-space-3) var(--iquji-space-4);
+}
+
+.ops-server-active-banner__main {
+  align-items: center;
+  display: flex;
+  flex: 1 1 240px;
+  gap: var(--iquji-space-3);
+  min-width: 0;
+}
+
+.ops-server-active-banner__icon {
+  align-items: center;
+  display: inline-flex;
+  flex-shrink: 0;
+  justify-content: center;
+}
+
+.ops-server-active-banner__icon[data-spin="true"] svg {
+  animation: ops-spin 2s linear infinite;
+}
+
+.ops-server-active-banner__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.ops-server-active-banner__headline {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iquji-space-2);
+}
+
+.ops-server-active-banner__title {
+  color: var(--iquji-color-text);
+  font-size: var(--iquji-font-size-body-sm);
+  font-weight: 600;
+  line-height: var(--iquji-line-height-body-sm);
+}
+
+.ops-server-active-banner__text {
+  color: inherit;
+  font-size: var(--iquji-font-size-body-sm);
+  line-height: var(--iquji-line-height-body-sm);
+  margin: 0;
+}
+
+.ops-server-active-banner__actions {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+}
+
+@keyframes ops-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,52 @@
+[package]
+license-file = "../LICENSE"
+name = "iquops-desktop"
+version = "0.1.1"
+edition = "2024"
+rust-version = "1.97.1"
+publish = false
+description = "iQuji Ops Tauri 桌面宿主。"
+build = "build.rs"
+
+[[bin]]
+name = "iquops-desktop"
+path = "src/main.rs"
+
+[lints]
+workspace = true
+
+[dependencies]
+dirs = "6"
+libc = "0.2"
+getrandom = "=0.3.4"
+hex = "=0.4.3"
+keyring = "=4.1.6"
+reqwest = { version = "0.13", default-features = false, features = ["rustls"] }
+serde = { version = "=1.0.229", features = ["derive"] }
+serde_json = "=1.0.151"
+tauri = { version = "=2.11.5", features = ["wry"] }
+tauri-plugin-single-instance = "=2.4.3"
+tokio = { version = "=1.53.1", features = ["full"] }
+chrono = { version = "=0.4.45", default-features = false, features = ["clock"] }
+url = "=2.5.8"
+
+[target.'cfg(target_os = "macos")'.dependencies]
+objc2-web-kit = { version = "=0.3.2", default-features = false, features = ["objc2-app-kit", "WKNavigation", "WKWebView"] }
+
+[target.'cfg(target_os = "linux")'.dependencies]
+webkit2gtk = "=2.0.2"
+
+[target.'cfg(windows)'.dependencies]
+webview2-com = "=0.38.2"
+windows-core = "=0.61.2"
+
+[build-dependencies]
+tauri-build = { version = "=2.6.3", features = [] }
+
+[workspace]
+
+[workspace.lints.rust]
+unsafe_op_in_unsafe_fn = "deny"
+
+[workspace.lints.clippy]
+all = { level = "warn", priority = -1 }

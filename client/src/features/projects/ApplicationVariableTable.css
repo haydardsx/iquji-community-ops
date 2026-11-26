@@ -1,0 +1,188 @@
+.ops-variable-settings {
+  container-type: inline-size;
+  min-width: 0;
+}
+
+.ops-variable-section-heading {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ops-variable-heading__title-group {
+  align-items: center;
+  display: flex;
+  gap: var(--iquji-space-2);
+}
+
+.ops-variables-count-badge {
+  background: var(--iquji-color-surface-muted);
+  border: 1px solid var(--iquji-color-border);
+  border-radius: 999px;
+  color: var(--iquji-color-muted);
+  font-size: var(--iquji-font-size-micro, 11px);
+  font-weight: 600;
+  padding: 1px 7px;
+  line-height: 1.2;
+}
+
+.ops-variable-settings .ops-variable-row,
+.ops-variable-settings .ops-variables-table__header {
+  grid-template-columns: minmax(200px, 2fr) 120px minmax(150px, 1.2fr) minmax(180px, 2fr) 36px;
+}
+
+.ops-variables-table[data-columns="6"] .ops-variable-row,
+.ops-variables-table[data-columns="6"] .ops-variables-table__header {
+  grid-template-columns: minmax(180px, 2fr) 115px 125px 115px minmax(170px, 2fr) 36px;
+}
+
+.ops-variable-stage-field {
+  align-items: center;
+  display: flex;
+  gap: 4px;
+  width: 100%;
+}
+
+.ops-variable-stage-field .iquji-select {
+  flex: 1;
+  min-width: 0;
+}
+
+.ops-variable-settings .ops-variable-row {
+  align-items: center;
+}
+
+.ops-variable-key-input,
+.ops-variable-value-input {
+  font-family: var(
+    --iquji-font-mono,
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace
+  );
+  font-size: 13px;
+}
+
+.ops-variable-settings .ops-variable-row > *,
+.ops-variable-settings .iquji-field {
+  min-width: 0;
+}
+
+.ops-variable-row-wrapper {
+  position: relative;
+  transition: background-color 0.1s ease;
+}
+
+.ops-variable-row-wrapper:hover {
+  background: var(--iquji-color-surface-hover, rgba(0, 0, 0, 0.018));
+}
+
+.ops-variable-settings .ops-variable-row > .iquji-field > .iquji-field__label,
+.ops-variable-settings .ops-variable-cell > .iquji-field > .iquji-field__label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.ops-variable-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.ops-variable-cell--compound {
+  align-items: center;
+  flex-direction: row;
+  gap: 6px;
+  width: 100%;
+}
+
+.ops-variable-cell--compound > .iquji-field {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.ops-variable-table__actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--iquji-space-2, 8px);
+}
+
+.ops-variable-table__guide-btn {
+  color: var(--iquji-color-muted);
+}
+
+.ops-variable-subfield {
+  align-items: center;
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  gap: 4px;
+}
+
+.ops-variable-subfield__tag {
+  color: var(--iquji-color-muted);
+  font-size: 11px;
+  line-height: 1;
+}
+
+.ops-variable-remove,
+.ops-variables-table__header > :last-child {
+  justify-self: end;
+}
+
+.ops-variable-remove {
+  color: var(--iquji-color-muted);
+  transition: color 0.15s ease;
+}
+
+.ops-variable-remove:hover {
+  color: var(--iquji-color-danger, #ef4444);
+}
+
+@container (min-width: 621px) {
+  .ops-variable-settings .ops-field-with-help {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .ops-variable-settings .ops-field-with-help > .iquji-field > .iquji-field__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .ops-variable-settings .ops-field-with-help :is(.iquji-input, .iquji-select) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+}
+
+@container (max-width: 620px) {
+  .ops-variable-settings .ops-variables-table__header {
+    display: none;
+  }
+
+  .ops-variable-settings .ops-variable-row {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr));
+    align-items: start;
+  }
+
+  .ops-variable-settings .ops-variable-row > .iquji-field > .iquji-field__label,
+  .ops-variable-settings .ops-variable-cell > .iquji-field > .iquji-field__label {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+    white-space: normal;
+  }
+}

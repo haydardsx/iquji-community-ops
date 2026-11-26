@@ -1,0 +1,59 @@
+{
+  "name": "@iquji-ops/client",
+  "version": "0.1.1",
+  "private": true,
+  "license": "SEE LICENSE IN ../LICENSE",
+  "type": "module",
+  "packageManager": "bun@1.3.14",
+  "engines": {
+    "bun": "1.3.14"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "bun run typecheck && bun --bun vite build",
+    "typecheck": "bun --bun tsc -p tsconfig.json --noEmit",
+    "test": "bun --bun vitest run",
+    "lint": "bun --bun biome check .",
+    "format": "bun --bun biome check . --write",
+    "check": "bun run lint && bun run typecheck && bun run test && bun --bun vite build",
+    "check:boundaries": "bun scripts/check-boundaries.mjs",
+    "desktop:dev": "bun scripts/desktop.mjs dev",
+    "desktop:build": "bun scripts/desktop.mjs build"
+  },
+  "dependencies": {
+    "@base-ui/react": "1.3.0",
+    "@hookform/resolvers": "5.2.2",
+    "@iquji-community/web-component": "0.2.2",
+    "@iquji-community/web-editor": "0.2.2",
+    "@iquji-community/web-i18n": "0.2.2",
+    "@iquji-community/web-icons": "0.2.2",
+    "@iquji-community/web-motion": "0.2.2",
+    "@iquji-community/web-network": "0.2.2",
+    "@iquji-community/web-query": "0.2.2",
+    "@iquji-community/web-theme": "0.2.2",
+    "@tanstack/react-query": "5.99.2",
+    "@tanstack/react-router": "1.168.23",
+    "@tanstack/react-table": "8.21.3",
+    "@tauri-apps/api": "2.11.0",
+    "framer-motion": "12.34.0",
+    "lucide-react": "0.468.0",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-hook-form": "7.73.1",
+    "zod": "3.25.76",
+    "zustand": "5.0.12"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.12",
+    "@playwright/test": "1.59.1",
+    "@tauri-apps/cli": "2.11.4",
+    "@types/bun": "1.3.14",
+    "@types/node": "25.2.2",
+    "@types/react": "19.2.13",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "5.0.4",
+    "typescript": "5.9.3",
+    "vite": "7.1.7",
+    "vitest": "3.2.4"
+  }
+}

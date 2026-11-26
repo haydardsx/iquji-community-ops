@@ -1,0 +1,9 @@
+[[permission]]
+identifier = "allow-network-proxy-settings"
+description = "Enables reading network proxy settings."
+commands.allow = ["network_proxy_settings"]
+
+[[permission]]
+identifier = "allow-save-network-proxy-settings"
+description = "Enables saving network proxy settings."
+commands.allow = ["save_network_proxy_settings"]

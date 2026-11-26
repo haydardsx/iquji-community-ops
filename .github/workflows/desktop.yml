@@ -1,0 +1,146 @@
+name: Desktop
+on:
+  pull_request:
+  push:
+    branches: [main]
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: desktop-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ !startsWith(github.ref, 'refs/tags/') }}
+
+jobs:
+  checks:
+    name: Web, Go and Jenkins tests
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5
+        with:
+          go-version-file: server/go.mod
+          cache-dependency-path: |
+            server/go.sum
+            agent/go.mod
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '26'
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2
+        with:
+          bun-version: 1.3.14
+      - run: |
+          bun install --cwd client --frozen-lockfile
+          bun run --cwd client check:boundaries
+          bun run --cwd client check
+          go -C agent test ./...
+          go -C server test ./...
+          node --test server/tests/jenkins/*.test.mjs
+
+  package:
+    name: Package ${{ matrix.target }}
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 90
+    permissions:
+      contents: read
+      id-token: write
+      attestations: write
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { target: macos-arm64, runner: macos-15, bundle: dmg }
+          - { target: macos-x64, runner: macos-15-intel, bundle: dmg }
+          - { target: windows-x64, runner: windows-2025, bundle: nsis }
+          - { target: linux-amd64, runner: ubuntu-24.04, bundle: deb }
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Require clean hosted build directories
+        run: python .github/scripts/hosted_source.py build
+      - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5
+        with:
+          go-version-file: server/go.mod
+          cache-dependency-path: |
+            server/go.sum
+            agent/go.mod
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '26'
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2
+        with:
+          bun-version: 1.3.14
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: '3.12'
+      - name: Install native dependencies
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes libwebkit2gtk-4.1-dev libayatana-appindicator3-dev librsvg2-dev libxdo-dev libssl-dev pkg-config build-essential dbus-x11 xvfb xauth
+      - name: Install Rust
+        run: |
+          rustup toolchain install 1.97.1 --profile minimal --component rust-docs
+          rustup override set 1.97.1
+          rustc --version
+      - name: Build installer
+        run: |
+          bun install --cwd client --frozen-lockfile
+          bun run --cwd client desktop:build --bundles ${{ matrix.bundle }}
+      - name: Test desktop host
+        run: cargo test --locked --manifest-path desktop/Cargo.toml --release
+      - name: Install and verify desktop app
+        env:
+          DESKTOP_TARGET: ${{ matrix.target }}
+        run: |
+          if [[ "$RUNNER_OS" == "Linux" ]]; then
+            dbus-run-session -- xvfb-run -a python .github/scripts/verify_desktop.py "$DESKTOP_TARGET"
+          else
+            python .github/scripts/verify_desktop.py "$DESKTOP_TARGET"
+          fi
+      - name: Attest the installer built in this job
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+        uses: actions/attest-build-provenance@977bb373ede98d70efdf65b84cb5f73e068dcc2a # v3
+        with:
+          subject-path: |
+            dist-release/*.dmg
+            dist-release/*.exe
+            dist-release/*.deb
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: installer-${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.target }}
+          path: dist-release/
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 7
+
+  release:
+    name: Publish verified installers
+    needs: [checks, package]
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+      attestations: read
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Require empty hosted release directory
+        run: python3 .github/scripts/hosted_source.py release
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          pattern: installer-${{ github.run_id }}-${{ github.run_attempt }}-*
+          path: installers
+      - name: Verify and publish the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 .github/scripts/publish_release.py

@@ -1,0 +1,574 @@
+/* 监控概览。 */
+
+/* 页面标题。 */
+.ops-page .iquji-page-header {
+  margin-bottom: 4px;
+}
+
+.ops-page .iquji-page-header h1 {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.ops-page .iquji-page-header__actions {
+  align-items: center;
+  padding-top: 2px;
+}
+
+/* 指标卡。 */
+.ops-stat-grid--triple {
+  display: grid;
+  gap: var(--iquji-space-3);
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+@media (min-width: 640px) {
+  .ops-stat-grid--triple {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1024px) {
+  .ops-stat-grid--triple {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.iquji-button.ops-stat-modern {
+  color: var(--iquji-color-text);
+  justify-content: initial;
+  min-height: 0;
+  white-space: normal;
+  align-items: stretch;
+  background: var(--iquji-color-surface-raised);
+  border: 1px solid var(--iquji-color-border);
+  border-radius: var(--iquji-radius-panel);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: var(--iquji-space-2);
+  min-width: 0;
+  padding: 16px 20px;
+  position: relative;
+  text-align: left;
+  transition:
+    transform 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.iquji-button.ops-stat-modern:hover {
+  background: var(--iquji-color-surface-raised);
+  border-color: var(--iquji-color-control-hover-border);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transform: translateY(-1px);
+}
+
+.iquji-button.ops-stat-modern--active {
+  border-color: rgba(59, 130, 246, 0.5);
+}
+
+.ops-stat-modern__head {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ops-stat-modern__head-right {
+  align-items: center;
+  display: inline-flex;
+  gap: 8px;
+}
+
+.ops-stat-modern__jump-hint {
+  color: var(--iquji-color-accent);
+  display: inline-flex;
+  font-size: 11px;
+  font-weight: 500;
+  opacity: 0.75;
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+}
+
+.iquji-button.ops-stat-modern:hover .ops-stat-modern__jump-hint {
+  opacity: 1;
+  transform: translateX(2px);
+}
+
+.ops-stat-modern__title {
+  color: var(--iquji-color-muted);
+  font-size: var(--iquji-font-size-caption);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.ops-stat-modern__icon {
+  align-items: center;
+  border-radius: 999px;
+  display: inline-flex;
+  height: 28px;
+  justify-content: center;
+  width: 28px;
+}
+
+.ops-stat-modern__icon[data-color="blue"] {
+  background: rgba(59, 130, 246, 0.08);
+  color: #3b82f6;
+}
+
+.ops-stat-modern__icon[data-color="emerald"] {
+  background: rgba(16, 185, 129, 0.08);
+  color: #10b981;
+}
+
+.ops-stat-modern__icon[data-color="amber"] {
+  background: rgba(245, 158, 11, 0.1);
+  color: #d97706;
+}
+
+.ops-stat-modern__icon[data-color="indigo"] {
+  background: rgba(99, 102, 241, 0.08);
+  color: #6366f1;
+}
+
+.ops-stat-modern__value-row {
+  align-items: baseline;
+  display: flex;
+  gap: var(--iquji-space-2);
+}
+
+.ops-stat-modern__number {
+  color: var(--iquji-color-text);
+  font-size: var(--iquji-font-size-display-sm);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.ops-stat-modern__unit {
+  color: var(--iquji-color-muted);
+  font-size: var(--iquji-font-size-caption);
+}
+
+.ops-stat-modern__footer {
+  align-items: center;
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.ops-stat-modern__desc {
+  color: var(--iquji-color-muted);
+  font-size: 11px;
+  line-height: 1;
+}
+
+/* 呼吸状态灯圆点 */
+.ops-status-dot {
+  border-radius: 999px;
+  display: inline-block;
+  flex-shrink: 0;
+  height: 6px;
+  width: 6px;
+}
+
+.ops-status-dot[data-tone="success"] {
+  background: #10b981;
+}
+
+.ops-status-dot[data-tone="warning"] {
+  background: #f59e0b;
+}
+
+.ops-status-dot[data-tone="danger"] {
+  background: #ef4444;
+}
+
+.ops-status-dot[data-tone="neutral"] {
+  background: var(--iquji-color-muted);
+}
+
+.ops-status-dot--pulse {
+  animation: opsPulse 2s infinite ease-in-out;
+}
+
+@keyframes opsPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 5px rgba(16, 185, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+/* 自动刷新控件。 */
+.iquji-button.ops-refresh-pill-btn {
+  min-height: 0;
+  align-items: center;
+  background: var(--iquji-color-surface-muted);
+  border: 1px solid var(--iquji-color-border);
+  border-radius: var(--iquji-radius-pill);
+  cursor: pointer;
+  display: inline-flex;
+  gap: 6px;
+  height: 30px;
+  padding: 0 10px;
+  transition: all 0.15s ease;
+}
+
+.iquji-button.ops-refresh-pill-btn:hover {
+  background: var(--iquji-color-surface-hover);
+  border-color: var(--iquji-color-control-hover-border);
+}
+
+.ops-refresh-pill-label {
+  color: var(--iquji-color-text);
+  font-size: var(--iquji-font-size-caption);
+  font-weight: 500;
+}
+
+.ops-refresh-pill-time {
+  color: var(--iquji-color-muted);
+  font-family: var(--iquji-font-mono, monospace);
+  font-size: 11px;
+}
+
+/* 监控数据表。 */
+.ops-workbench-box {
+  background: var(--iquji-color-surface-raised);
+  border: 1px solid var(--iquji-color-border);
+  border-radius: var(--iquji-radius-panel);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.ops-workbench-toolbar {
+  align-items: center;
+  background: var(--iquji-color-surface);
+  border-bottom: 1px solid var(--iquji-color-border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iquji-space-3);
+  justify-content: space-between;
+  padding: 8px 16px;
+}
+
+.ops-workbench-toolbar__left {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iquji-space-2);
+}
+
+.ops-workbench-toolbar__right {
+  align-items: center;
+  display: flex;
+  gap: var(--iquji-space-3);
+}
+
+/* 视图选择器。 */
+.ops-filter-segmented {
+  background: var(--iquji-color-surface-muted);
+  border-radius: var(--iquji-radius-pill);
+  display: inline-flex;
+  padding: 2px;
+}
+
+.iquji-button.ops-filter-segmented__btn {
+  min-height: 0;
+  background: transparent;
+  border: none;
+  border-radius: var(--iquji-radius-pill);
+  color: var(--iquji-color-muted);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  padding: 5px 12px;
+  transition: all 0.15s ease;
+}
+
+.iquji-button.ops-filter-segmented__btn:hover {
+  background: transparent;
+  color: var(--iquji-color-text);
+}
+
+.iquji-button.ops-filter-segmented__btn--active,
+.iquji-button.ops-filter-segmented__btn--active:hover {
+  background: var(--iquji-color-surface-raised);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  color: var(--iquji-color-text);
+}
+
+/* 紧凑搜索框 */
+.ops-search-input-wrap {
+  position: relative;
+  width: 210px;
+}
+
+.ops-search-input-wrap .iquji-input {
+  border-radius: var(--iquji-radius-pill);
+  font-size: var(--iquji-font-size-caption);
+  height: 30px;
+  padding-left: 30px;
+}
+
+.ops-search-input-wrap__icon {
+  color: var(--iquji-color-muted);
+  left: 9px;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* 监控表格容器。 */
+.ops-workbench-body {
+  margin: 0;
+  min-width: 0;
+  padding: 0;
+}
+
+.ops-workbench-body .iquji-table-frame {
+  border: none;
+  border-radius: 0;
+}
+
+/* 表格单元格。 */
+.ops-primary-title-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.iquji-button.ops-table-link-btn {
+  justify-content: flex-start;
+  min-height: 0;
+  background: transparent;
+  border: none;
+  color: var(--iquji-color-text);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--iquji-font-size-body-sm);
+  font-weight: 600;
+  padding: 0;
+  text-align: left;
+  transition: color 0.15s ease;
+}
+
+.iquji-button.ops-table-link-btn:hover {
+  background: transparent;
+  color: var(--iquji-color-accent);
+  text-decoration: underline;
+}
+
+.ops-primary-title-cell__sub {
+  color: var(--iquji-color-muted);
+  font-family: var(--iquji-font-mono, monospace);
+  font-size: 11px;
+}
+
+/* 硬件资源使用率。 */
+.ops-watermark-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 140px;
+}
+
+.ops-watermark-item {
+  align-items: center;
+  display: grid;
+  gap: 6px;
+  grid-template-columns: 28px minmax(50px, 1fr) 28px;
+}
+
+.ops-watermark-item__label {
+  color: var(--iquji-color-muted);
+  font-size: 10px;
+}
+
+.ops-watermark-item__bar {
+  background: var(--iquji-color-surface-muted);
+  border-radius: 999px;
+  height: 4px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.ops-watermark-item__fill {
+  border-radius: 999px;
+  display: block;
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.ops-watermark-item__fill[data-tone="success"] {
+  background: #10b981;
+}
+
+.ops-watermark-item__fill[data-tone="warning"] {
+  background: #f59e0b;
+}
+
+.ops-watermark-item__fill[data-tone="danger"] {
+  background: #ef4444;
+}
+
+.ops-watermark-item__fill[data-tone="neutral"] {
+  background: var(--iquji-color-border);
+}
+
+.ops-watermark-item__val {
+  color: var(--iquji-color-text);
+  font-family: var(--iquji-font-mono, monospace);
+  font-size: 10px;
+  text-align: right;
+}
+
+/* 项目与应用分组。 */
+.ops-project-groups-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iquji-space-3);
+  padding: 12px 16px 16px;
+}
+
+.ops-project-group-card {
+  background: var(--iquji-color-surface-raised);
+  border: 1px solid var(--iquji-color-border);
+  border-radius: var(--iquji-radius-panel);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: border-color 0.15s ease;
+}
+
+.ops-project-group-card:hover {
+  border-color: var(--iquji-color-control-hover-border);
+}
+
+.ops-project-group-card__header {
+  align-items: center;
+  background: var(--iquji-color-surface-muted);
+  border-bottom: 1px solid var(--iquji-color-border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iquji-space-2);
+  justify-content: space-between;
+  padding: 10px 14px;
+}
+
+.ops-project-group-card__header-left {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iquji-space-2);
+}
+
+.ops-project-group-card__folder-icon {
+  align-items: center;
+  color: var(--iquji-color-accent);
+  display: inline-flex;
+}
+
+.iquji-button.ops-project-group-card__title-btn {
+  justify-content: flex-start;
+  min-height: 0;
+  background: transparent;
+  border: none;
+  color: var(--iquji-color-text);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--iquji-font-size-body-sm);
+  font-weight: 600;
+  padding: 0;
+  transition: color 0.15s ease;
+}
+
+.iquji-button.ops-project-group-card__title-btn:hover {
+  background: transparent;
+  color: var(--iquji-color-accent);
+  text-decoration: underline;
+}
+
+.ops-project-group-card__meta-pills {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ops-project-meta-pill {
+  align-items: center;
+  background: var(--iquji-color-surface);
+  border: 1px solid var(--iquji-color-border);
+  border-radius: var(--iquji-radius-pill);
+  color: var(--iquji-color-muted);
+  display: inline-flex;
+  font-size: 11px;
+  gap: 4px;
+  line-height: 1;
+  padding: 3px 8px;
+}
+
+.ops-project-meta-pill[data-tone="danger"] {
+  border-color: rgba(239, 68, 68, 0.25);
+  color: #ef4444;
+}
+
+.ops-project-group-card__header-right {
+  align-items: center;
+  display: flex;
+  gap: var(--iquji-space-2);
+}
+
+.ops-project-group-card__body {
+  width: 100%;
+}
+
+.ops-project-apps-table {
+  border-collapse: collapse;
+  font-size: var(--iquji-font-size-body-sm);
+  width: 100%;
+}
+
+.ops-project-apps-table th {
+  background: var(--iquji-color-surface);
+  border-bottom: 1px solid var(--iquji-color-border);
+  color: var(--iquji-color-muted);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 8px 14px;
+  text-align: left;
+}
+
+.ops-project-apps-table td {
+  border-bottom: 1px solid var(--iquji-color-border);
+  color: var(--iquji-color-text);
+  padding: 10px 14px;
+  vertical-align: middle;
+}
+
+.ops-project-apps-table tr:last-child td {
+  border-bottom: none;
+}
+
+.ops-project-apps-table tr:hover td {
+  background: var(--iquji-color-surface-hover);
+}
+
+/* 集群状态条。 */
+.ops-servers-view-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.iquji-button.ops-copy-host-btn {
+  min-height: 0;
+}

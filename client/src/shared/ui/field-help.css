@@ -1,0 +1,53 @@
+.ops-field-with-help {
+  display: grid;
+  grid-template-columns: minmax(0, max-content) minmax(24px, 1fr);
+  align-items: center;
+  gap: var(--iquji-space-1);
+  min-width: 0;
+}
+
+.ops-field-with-help > .iquji-field {
+  display: contents;
+}
+
+.ops-field-with-help > .iquji-field > * {
+  grid-column: 1 / -1;
+}
+
+.ops-field-with-help > .iquji-field > .iquji-field__label {
+  grid-row: 1;
+  grid-column: 1;
+  overflow-wrap: anywhere;
+}
+
+/* 隐藏常驻的说明行，保留共享字段为读屏器建立的说明、必填和错误关联。 */
+.ops-field-with-help > .iquji-field > .iquji-field__description {
+  display: none;
+}
+
+.ops-field-with-help > .ops-field-help-trigger {
+  grid-row: 1;
+  grid-column: 2;
+  justify-self: start;
+}
+
+.ops-label-with-help {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--iquji-space-1);
+}
+
+.iquji-icon-button.ops-field-help-trigger {
+  width: 24px;
+  height: 24px;
+  margin-block: -2px;
+  flex: none;
+  color: var(--iquji-color-muted);
+}
+
+.ops-field-help-popup {
+  max-width: min(22rem, calc(100vw - 24px));
+  overflow-wrap: anywhere;
+  font-size: var(--iquji-font-size-body-sm);
+  line-height: var(--iquji-line-height-body-sm);
+}

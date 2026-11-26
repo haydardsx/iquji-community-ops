@@ -1,0 +1,4 @@
+[[permission]]
+identifier = "allow-automation-window"
+description = "允许当前桌面窗口管理本地自动化连接。"
+commands.allow = ["automation_window_key"]

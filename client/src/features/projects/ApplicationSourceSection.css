@@ -1,0 +1,354 @@
+/* 应用“来源与发布”页签的卡片栈与视觉层级样式 */
+
+.ops-source-layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iquji-space-4);
+  min-width: 0;
+}
+
+/* 统一卡片头部（图标徽章 + 标题与副标题 + 右侧操作区） */
+.ops-config-panel__head {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iquji-space-3);
+  justify-content: space-between;
+  min-width: 0;
+  padding-block: var(--iquji-space-3);
+  width: 100%;
+}
+
+.ops-config-panel__title-group {
+  align-items: center;
+  display: flex;
+  flex: 1 1 240px;
+  gap: var(--iquji-space-3);
+  min-width: 0;
+}
+
+.ops-config-panel__icon {
+  align-items: center;
+  background: var(--iquji-color-surface-muted);
+  border: 1px solid var(--iquji-color-border);
+  border-radius: var(--iquji-radius-control);
+  color: var(--iquji-color-muted);
+  display: inline-flex;
+  flex-shrink: 0;
+  height: 34px;
+  justify-content: center;
+  width: 34px;
+}
+
+.ops-config-panel__icon--accent {
+  background: var(--iquji-color-accent-soft);
+  border-color: var(--iquji-color-info-border);
+  color: var(--iquji-color-accent);
+}
+
+.ops-config-panel__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.ops-config-panel__title {
+  align-items: center;
+  color: var(--iquji-color-text);
+  display: inline-flex;
+  font-size: var(--iquji-font-size-body);
+  font-weight: 600;
+  gap: var(--iquji-space-1);
+  line-height: var(--iquji-line-height-body);
+  margin: 0;
+  min-width: 0;
+}
+
+/* 卡片内容区与平衡网格 */
+.ops-section-panel__body.ops-config-panel__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iquji-space-4);
+  min-width: 0;
+}
+
+.ops-source-grid--3 {
+  display: grid;
+  gap: var(--iquji-space-4);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  min-width: 0;
+}
+
+.ops-package-coords-grid {
+  display: grid;
+  gap: var(--iquji-space-4);
+  grid-template-columns: minmax(140px, 0.75fr) minmax(0, 1.35fr) minmax(0, 1fr);
+  min-width: 0;
+}
+
+.ops-source-grid--2 {
+  display: grid;
+  gap: var(--iquji-space-4);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  min-width: 0;
+}
+
+.ops-source-grid--3 > *,
+.ops-package-coords-grid > *,
+.ops-source-grid--2 > * {
+  min-width: 0;
+}
+
+/* 内嵌在“构建环境”卡片底部的高级设置折叠区 */
+.ops-advanced-disclosure {
+  border-top: 1px solid var(--iquji-color-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--iquji-space-3);
+  margin-top: var(--iquji-space-1);
+  padding-top: var(--iquji-space-3);
+}
+
+.ops-advanced-disclosure__bar {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iquji-space-2) var(--iquji-space-3);
+  justify-content: space-between;
+}
+
+.ops-advanced-disclosure__trigger {
+  justify-content: flex-start;
+  margin-left: calc(-1 * var(--iquji-space-2));
+}
+
+.ops-advanced-disclosure__hint {
+  background: var(--iquji-color-surface-muted);
+  border: 1px solid var(--iquji-color-border);
+  border-radius: var(--iquji-radius-control);
+  color: var(--iquji-color-muted);
+  font-family: var(--iquji-font-mono);
+  font-size: var(--iquji-font-size-caption);
+  line-height: var(--iquji-line-height-caption);
+  max-width: 100%;
+  overflow: hidden;
+  padding: 2px 8px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ops-advanced-disclosure__body {
+  background: var(--iquji-color-surface-muted);
+  border: 1px solid var(--iquji-color-border);
+  border-radius: var(--iquji-radius-control);
+  display: grid;
+  gap: var(--iquji-space-4);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: var(--iquji-space-3) var(--iquji-space-4);
+}
+
+.ops-advanced-disclosure__body > * {
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .ops-source-grid--3,
+  .ops-package-coords-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .ops-source-grid--3,
+  .ops-package-coords-grid,
+  .ops-source-grid--2,
+  .ops-advanced-disclosure__body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.ops-required {
+  color: var(--iquji-color-critical-text);
+}
+
+.ops-command-editor {
+  background: var(--iquji-color-surface);
+  border: 1px solid var(--iquji-color-control-border, var(--iquji-color-border));
+  border-radius: var(--iquji-radius-control);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition:
+    border-color var(--iquji-motion-control, 0.15s) ease,
+    box-shadow var(--iquji-motion-control, 0.15s) ease;
+}
+
+.ops-command-editor:focus-within {
+  border-color: var(--iquji-color-control-focus-border, var(--iquji-color-accent));
+  box-shadow: var(--iquji-control-focus-shadow);
+}
+
+.ops-command-editor .iquji-editor-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.ops-command-editor .iquji-text-editor {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-height: 7.5rem;
+}
+
+.ops-command-editor .iquji-text-editor .cm-editor {
+  flex: 1 1 auto;
+  max-height: 18rem;
+  min-height: 7.5rem;
+}
+
+.ops-container-item-row {
+  align-items: flex-end;
+  display: grid;
+  gap: var(--iquji-space-3);
+  padding: var(--iquji-space-1) 0;
+  width: 100%;
+}
+
+.ops-container-port-row {
+  grid-template-columns: minmax(130px, 1.2fr) 110px minmax(120px, 1fr) 36px;
+}
+
+.ops-container-volume-row {
+  grid-template-columns: minmax(140px, 1fr) minmax(180px, 1.5fr) 36px;
+}
+
+.ops-container-item-row__action {
+  align-items: center;
+  display: flex;
+  height: 36px;
+  justify-content: center;
+}
+
+.ops-container-item-remove {
+  color: var(--iquji-color-muted);
+  transition: color 0.15s ease;
+}
+
+.ops-container-item-remove:hover {
+  color: var(--iquji-color-danger, #ef4444);
+}
+
+@media (max-width: 640px) {
+  .ops-container-port-row,
+  .ops-container-volume-row {
+    grid-template-columns: 1fr;
+    gap: var(--iquji-space-2);
+  }
+  .ops-container-item-row__action {
+    justify-content: flex-end;
+  }
+}
+
+/* 面板内嵌命令编辑区样式 */
+.ops-command-embedded {
+  border-top: 1px solid var(--iquji-color-border-subtle, var(--iquji-color-border));
+  display: flex;
+  flex-direction: column;
+  gap: var(--iquji-space-3);
+  padding-top: var(--iquji-space-4);
+}
+
+.ops-command-embedded__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iquji-space-1);
+}
+
+.ops-command-embedded__headline {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iquji-space-2);
+}
+
+.ops-command-embedded__label {
+  color: var(--iquji-color-text);
+  font-size: var(--iquji-font-size-body-sm);
+  font-weight: 600;
+  line-height: var(--iquji-line-height-body-sm);
+}
+
+.ops-command-embedded__desc {
+  color: var(--iquji-color-muted);
+  font-size: var(--iquji-font-size-caption);
+  line-height: var(--iquji-line-height-caption);
+  margin: 0;
+}
+
+/* 命令编辑器字段体 */
+.ops-command-field__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iquji-space-2);
+}
+
+.ops-field-error {
+  color: var(--iquji-color-danger, #ef4444);
+  font-size: var(--iquji-font-size-caption, 12px);
+  margin: 0;
+}
+
+/* 访问入口扁平路由面板与网关工具条 */
+.ops-routes-panel__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iquji-space-3, 12px);
+  min-width: 0;
+}
+
+.ops-routes-panel__gateway-bar {
+  align-items: center;
+  background: var(--iquji-color-surface-muted, rgba(0, 0, 0, 0.02));
+  border: 1px solid var(--iquji-color-border-subtle, #e5e7eb);
+  border-radius: var(--iquji-radius-control, 8px);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iquji-space-3, 12px);
+  justify-content: space-between;
+  padding: var(--iquji-space-3, 12px) var(--iquji-space-4, 16px);
+}
+
+.ops-routes-panel__gateway-field {
+  flex: 1 1 280px;
+  min-width: 0;
+}
+
+.ops-routes-panel__gateway-hint {
+  align-items: center;
+  color: var(--iquji-color-muted, #64748b);
+  display: inline-flex;
+  font-size: var(--iquji-font-size-caption, 13px);
+  gap: 6px;
+}
+
+.ops-routes-icon--ready {
+  color: var(--iquji-color-positive, #059669);
+}
+
+.ops-routes-icon--info {
+  color: var(--iquji-color-muted, #64748b);
+}
+
+.ops-routes-panel__dirty {
+  margin: 0;
+}
+
+.ops-routes-panel__table-wrapper {
+  min-width: 0;
+}
+
+.ops-routes-panel__table-wrapper .iquji-data-table {
+  border: 1px solid var(--iquji-color-border-subtle, #e5e7eb);
+  border-radius: var(--iquji-radius-control, 8px);
+}

@@ -1,0 +1,16 @@
+{
+  "identifier": "remote-main-capability",
+  "description": "允许主窗口中的本机页面管理代理设置、打开外部链接和刷新当前页面。",
+  "local": false,
+  "remote": {
+    "urls": ["http://127.0.0.1:*"]
+  },
+  "windows": ["main"],
+  "permissions": [
+    "allow-automation-window",
+    "allow-network-proxy-settings",
+    "allow-save-network-proxy-settings",
+    "allow-open-external-url",
+    "allow-reload-webview"
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "iQuji Ops",
+  "version": "0.1.1",
+  "identifier": "local.iquops.desktop",
+  "build": {
+    "beforeDevCommand": {
+      "script": "bun run dev",
+      "cwd": "../client"
+    },
+    "beforeBuildCommand": {
+      "script": "bun run build",
+      "cwd": "../client"
+    },
+    "beforeBundleCommand": {
+      "script": "bun build_support/notices.ts",
+      "cwd": "."
+    },
+    "devUrl": "http://127.0.0.1:5174",
+    "frontendDist": "../client/dist"
+  },
+  "app": {
+    "windows": [],
+    "security": {
+      "csp": "default-src 'self' http://127.0.0.1:*; connect-src 'self' http://127.0.0.1:* ws://127.0.0.1:*; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self'"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": [
+      "app"
+    ],
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "resources": {
+      "../LICENSE": "licenses/APP-LICENSE",
+      "../THIRD_PARTY_NOTICES.md": "licenses/THIRD_PARTY_NOTICES.md",
+      "../licenses/Community-MIT.txt": "licenses/Community-MIT.txt",
+      "../licenses/IQuji-Ops-1.0.txt": "licenses/IQuji-Ops-1.0.txt",
+      "../client/dist/": "client/",
+      "runtime/[!j]*": "runtime/",
+      "runtime/jenkins-plugins.tar": "resources/runtime/managed/jenkins/jenkins-plugins.tar",
+      "../server/resources/runtime/managed/jenkins/": "resources/runtime/managed/jenkins/",
+      "../agent/dist/iquops-monitoring-agent-linux-amd64": "agent/iquops-monitoring-agent-linux-amd64",
+      "../agent/dist/iquops-monitoring-agent-linux-arm64": "agent/iquops-monitoring-agent-linux-arm64",
+      "../config/app/app.json": "config/app/app.json"
+    }
+  }
+}

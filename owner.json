@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": "ops",
+  "visibility": "public",
+  "workspaces": [
+    {
+      "id": "ops-web",
+      "path": "client",
+      "buildSystem": "bun",
+      "frontendRole": "application",
+      "toolchain": "1.3.14",
+      "lockfile": "bun.lock",
+      "checkCommand": "bun run check",
+      "buildCommand": "bun run build",
+      "generated": [
+        "dist"
+      ]
+    },
+    {
+      "id": "ops-server",
+      "path": "server",
+      "buildSystem": "go",
+      "toolchain": "1.26.11",
+      "lockfile": "go.sum",
+      "checkCommand": "go test ./...",
+      "buildCommand": "go build ./...",
+      "generated": [
+        "bin"
+      ]
+    },
+    {
+      "id": "ops-agent",
+      "path": "agent",
+      "buildSystem": "go",
+      "toolchain": "1.26.11",
+      "lockfile": "go.sum",
+      "checkCommand": "go test ./...",
+      "buildCommand": "go build ./...",
+      "generated": [
+        "dist"
+      ]
+    },
+    {
+      "id": "ops-desktop",
+      "path": "desktop",
+      "buildSystem": "cargo",
+      "toolchain": "1.97.1",
+      "lockfile": "Cargo.lock",
+      "checkCommand": "cargo test --locked",
+      "buildCommand": "cargo build --locked",
+      "generated": [
+        "target",
+        "gen"
+      ]
+    }
+  ],
+  "tools": [],
+  "specRoots": [],
+  "ports": [],
+  "deployments": [],
+  "protocols": [],
+  "data": []
+}

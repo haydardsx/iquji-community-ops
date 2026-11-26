@@ -1,0 +1,212 @@
+/* MCP 设置主列表与权限抽屉布局样式（遵循无嵌套卡片与平整列表范式） */
+
+.ops-mcp-client-cell {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iquji-space-2);
+}
+
+.ops-mcp-perm-summary {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iquji-space-2);
+}
+
+.ops-mcp-table-actions {
+  align-items: center;
+  display: flex;
+  gap: var(--iquji-space-1);
+  justify-content: flex-end;
+}
+
+.ops-mcp-drawer-tools-head {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--iquji-space-2);
+}
+
+.ops-mcp-permissions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iquji-space-4);
+}
+
+.ops-mcp-toolbar {
+  align-items: center;
+  display: grid;
+  gap: var(--iquji-space-2);
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.ops-mcp-toolbar__search {
+  min-width: 0;
+}
+
+.ops-mcp-toolbar__filters {
+  align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--iquji-space-2);
+}
+
+.ops-mcp-scope-modal .iquji-dialog__surface {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.ops-mcp-scope-modal .iquji-dialog__header {
+  flex: none;
+}
+
+.ops-mcp-scope-modal .iquji-dialog__body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  padding: var(--iquji-space-4) var(--iquji-space-5);
+}
+
+.ops-mcp-scope-modal .iquji-dialog__actions {
+  flex: none;
+  padding: var(--iquji-space-3) var(--iquji-space-5);
+}
+
+.ops-mcp-scope-dialog,
+.ops-mcp-scope-dialog .ops-form-stack {
+  gap: var(--iquji-space-3);
+}
+
+.ops-mcp-scope-dialog .ops-form-section__header {
+  margin-bottom: var(--iquji-space-2);
+}
+
+.ops-mcp-scope-dialog .iquji-textarea {
+  min-height: 56px;
+  padding: 6px var(--iquji-space-3);
+}
+
+.ops-mcp-groups {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iquji-space-5);
+}
+
+.ops-mcp-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iquji-space-1);
+}
+
+.ops-mcp-group__header {
+  align-items: center;
+  color: var(--iquji-color-muted);
+  display: flex;
+  font-size: var(--iquji-font-size-caption);
+  font-weight: 600;
+  justify-content: space-between;
+  padding: var(--iquji-space-1) 0;
+}
+
+.ops-mcp-group__count {
+  color: var(--iquji-color-subtle);
+  font-variant-numeric: tabular-nums;
+}
+
+.ops-mcp-row {
+  align-items: center;
+  border-bottom: 1px solid var(--iquji-color-border);
+  display: flex;
+  gap: var(--iquji-space-3);
+  justify-content: space-between;
+  min-height: 48px;
+  padding: var(--iquji-space-2) 0;
+}
+
+.ops-mcp-row:last-child {
+  border-bottom: 0;
+}
+
+.ops-mcp-row__info {
+  align-items: center;
+  display: flex;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  gap: var(--iquji-space-2);
+  min-width: 0;
+}
+
+.ops-mcp-row__title {
+  color: var(--iquji-color-text);
+  font-size: var(--iquji-font-size-body-sm);
+  font-weight: 500;
+}
+
+.ops-mcp-row__code {
+  background: var(--iquji-color-surface-muted);
+  border: 1px solid var(--iquji-color-border);
+  border-radius: var(--iquji-radius-control);
+  color: var(--iquji-color-muted);
+  font-family: var(--iquji-font-mono);
+  font-size: var(--iquji-font-size-micro);
+  line-height: var(--iquji-line-height-micro);
+  padding: 2px var(--iquji-space-2);
+}
+
+.ops-mcp-row__controls {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  gap: var(--iquji-space-2);
+}
+
+.ops-mcp-row__select {
+  min-width: 120px;
+}
+
+/* 一次性连接配置 JSON 只读查看容器 */
+.ops-mcp-config-editor {
+  border: 1px solid var(--iquji-color-border-strong);
+  border-radius: var(--iquji-radius-panel);
+  display: flex;
+  flex-direction: column;
+  height: 220px;
+  overflow: hidden;
+}
+
+.ops-mcp-config-editor .ops-json-inspector.iquji-editor {
+  border: 0;
+  border-radius: 0;
+  flex: 1 1 0%;
+  height: 100%;
+  min-height: 0;
+}
+
+.ops-mcp-config-editor .iquji-text-editor,
+.ops-mcp-config-editor .cm-editor {
+  height: 100%;
+  min-height: 100%;
+}
+
+@media (max-width: 640px) {
+  .ops-mcp-toolbar {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ops-mcp-toolbar__filters {
+    flex-wrap: wrap;
+  }
+
+  .ops-mcp-row {
+    align-items: stretch;
+    flex-direction: column;
+    gap: var(--iquji-space-2);
+    padding: var(--iquji-space-3) 0;
+  }
+
+  .ops-mcp-row__controls {
+    justify-content: flex-end;
+  }
+}

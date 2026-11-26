@@ -1,0 +1,597 @@
+/* 业务表单的控件排列。 */
+.ops-form-stack {
+  align-content: start;
+  display: grid;
+  gap: var(--iquji-space-5);
+  min-width: 0;
+}
+
+.ops-form-grid {
+  align-items: start;
+  display: grid;
+  gap: var(--iquji-space-4);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  min-width: 0;
+}
+
+.ops-form-grid > * {
+  min-width: 0;
+}
+
+/* 双列表单网格。 */
+.ops-form-grid-2col {
+  align-items: start;
+  display: grid;
+  gap: var(--iquji-space-3) var(--iquji-space-4);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  min-width: 0;
+}
+
+.ops-form-grid-2col > * {
+  min-width: 0;
+}
+
+.ops-col-span-2 {
+  grid-column: 1 / -1;
+}
+
+/* 抽屉表单分节 */
+.ops-form-section {
+  display: grid;
+  gap: var(--iquji-space-3);
+  min-width: 0;
+}
+
+.ops-form-section + .ops-form-section {
+  border-top: 1px solid var(--iquji-color-border-subtle);
+  padding-top: var(--iquji-space-4);
+}
+
+.ops-form-section__header {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iquji-space-2) var(--iquji-space-3);
+  margin-bottom: var(--iquji-space-1);
+}
+
+.ops-form-section__title {
+  color: var(--iquji-color-text);
+  font-size: var(--iquji-font-size-body-sm);
+  font-weight: 600;
+  line-height: var(--iquji-line-height-body-sm);
+  margin: 0;
+}
+
+.ops-form-section__description {
+  color: var(--iquji-color-text-muted);
+  font-size: var(--iquji-font-size-caption);
+  line-height: var(--iquji-line-height-caption);
+  margin: 0;
+}
+
+/* 抽屉顶部环境模板卡片 */
+.ops-form-hero {
+  align-items: center;
+  background: var(--iquji-color-fill-secondary);
+  border: 1px solid var(--iquji-color-border-subtle);
+  border-radius: var(--iquji-radius-panel);
+  display: flex;
+  gap: var(--iquji-space-3);
+  padding: var(--iquji-space-3) var(--iquji-space-4);
+}
+
+.ops-form-hero__icon {
+  align-items: center;
+  background: var(--iquji-color-fill-active);
+  border: 1px solid var(--iquji-color-border-subtle);
+  border-radius: 6px;
+  color: var(--iquji-color-brand, #2563eb);
+  display: flex;
+  flex-shrink: 0;
+  height: 40px;
+  justify-content: center;
+  width: 40px;
+}
+
+.ops-form-hero__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--iquji-space-1);
+  min-width: 0;
+}
+
+.ops-form-hero__headline {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iquji-space-2);
+}
+
+.ops-form-hero__title {
+  color: var(--iquji-color-text);
+  font-size: var(--iquji-font-size-body);
+  font-weight: 600;
+  line-height: var(--iquji-line-height-body);
+  margin: 0;
+}
+
+.ops-form-hero__desc {
+  color: var(--iquji-color-text-muted);
+  font-size: var(--iquji-font-size-caption);
+  line-height: var(--iquji-line-height-caption);
+  margin: 0;
+}
+
+/* 凭据密码字段控件组 */
+.ops-secret-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iquji-space-1);
+  min-width: 0;
+}
+
+.ops-secret-field__header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ops-secret-field__toggle {
+  background: none;
+  border: none;
+  color: var(--iquji-color-brand, #2563eb);
+  cursor: pointer;
+  font-size: var(--iquji-font-size-micro);
+  line-height: 1;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.ops-secret-field__toggle:hover {
+  opacity: 0.8;
+}
+
+.ops-secret-input-wrapper {
+  align-items: center;
+  display: flex;
+  gap: var(--iquji-space-2);
+  min-width: 0;
+  width: 100%;
+}
+
+.ops-secret-input-wrapper .iquji-input {
+  flex: 1;
+  min-width: 0;
+}
+
+/* 详情抽屉顶部 Header 卡片 */
+.ops-detail-header-card {
+  align-items: center;
+  background: var(--iquji-color-fill-secondary);
+  border: 1px solid var(--iquji-color-border-subtle);
+  border-radius: var(--iquji-radius-panel);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iquji-space-3);
+  justify-content: space-between;
+  padding: var(--iquji-space-3) var(--iquji-space-4);
+}
+
+.ops-detail-header-card__info {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iquji-space-2) var(--iquji-space-3);
+}
+
+.ops-detail-header-card__icon {
+  align-items: center;
+  background: var(--iquji-color-fill-surface);
+  border: 1px solid var(--iquji-color-border-subtle);
+  border-radius: var(--iquji-radius-control);
+  color: var(--iquji-color-text-secondary);
+  display: flex;
+  height: 28px;
+  justify-content: center;
+  width: 28px;
+}
+
+.ops-detail-header-card__tag {
+  align-items: center;
+  background: var(--iquji-color-fill-surface);
+  border: 1px solid var(--iquji-color-border-subtle);
+  border-radius: var(--iquji-radius-control);
+  color: var(--iquji-color-text-secondary);
+  display: inline-flex;
+  font-size: var(--iquji-font-size-caption);
+  gap: 4px;
+  padding: 2px 8px;
+}
+
+.ops-detail-header-card__actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iquji-space-2);
+}
+
+/* 详情抽屉紧凑属性网格 */
+.ops-detail-meta-grid {
+  display: grid;
+  gap: var(--iquji-space-2) var(--iquji-space-4);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+}
+
+.ops-detail-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.ops-detail-meta-item dt {
+  color: var(--iquji-color-text-muted);
+  font-size: var(--iquji-font-size-caption);
+  line-height: var(--iquji-line-height-caption);
+}
+
+.ops-detail-meta-item dd {
+  align-items: center;
+  color: var(--iquji-color-text);
+  display: flex;
+  font-size: var(--iquji-font-size-body-sm);
+  font-weight: 500;
+  line-height: var(--iquji-line-height-body-sm);
+  margin: 0;
+  min-width: 0;
+  word-break: break-all;
+}
+
+/* 服务访问面板与高亮信息卡片 */
+.ops-access-card {
+  background: var(--iquji-color-fill-secondary);
+  border: 1px solid var(--iquji-color-border-subtle);
+  border-radius: var(--iquji-radius-panel);
+  display: flex;
+  flex-direction: column;
+  gap: var(--iquji-space-3);
+  padding: var(--iquji-space-3) var(--iquji-space-4);
+}
+
+.ops-access-card__row {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iquji-space-2) var(--iquji-space-3);
+  justify-content: space-between;
+}
+
+.ops-access-card__content {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iquji-space-2);
+  min-width: 0;
+}
+
+.ops-access-card__actions {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  gap: var(--iquji-space-1);
+}
+
+/* 详情辅助提示 */
+.ops-detail-notice {
+  align-items: center;
+  color: var(--iquji-color-text-muted);
+  display: flex;
+  font-size: var(--iquji-font-size-caption);
+  gap: 6px;
+  line-height: var(--iquji-line-height-caption);
+}
+
+@media (max-width: 580px) {
+  .ops-form-grid,
+  .ops-form-grid-2col,
+  .ops-detail-meta-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* 凭据列表的搜索与计数行。 */
+.ops-secret-toolbar {
+  align-items: center;
+  display: flex;
+  gap: var(--iquji-space-3);
+  margin-block: var(--iquji-space-3);
+}
+
+.ops-secret-toolbar .iquji-input {
+  max-width: 22rem;
+  min-width: 0;
+}
+
+.ops-secret-toolbar > .ops-muted {
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+/* 等宽代码字体 */
+.ops-font-mono {
+  font-family: var(
+    --iquji-font-family-mono,
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace
+  );
+}
+
+/* 凭据脱敏与指纹一键复制条 */
+.ops-secret-snippet {
+  align-items: center;
+  background: var(--iquji-color-fill-secondary, rgba(0, 0, 0, 0.04));
+  border: 1px solid var(--iquji-color-border-subtle);
+  border-radius: var(--iquji-radius-control, 6px);
+  box-sizing: border-box;
+  display: inline-flex;
+  gap: var(--iquji-space-2);
+  justify-content: space-between;
+  max-width: 100%;
+  min-width: 0;
+  padding: 3px 8px;
+}
+
+.ops-secret-snippet__code {
+  color: var(--iquji-color-text);
+  font-family: var(--iquji-font-family-mono, ui-monospace, monospace);
+  font-size: var(--iquji-font-size-caption, 12px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ops-secret-snippet__copy-btn {
+  align-items: center;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
+  color: var(--iquji-color-muted);
+  cursor: pointer;
+  display: inline-flex;
+  flex-shrink: 0;
+  gap: 4px;
+  padding: 2px 4px;
+  transition:
+    color 150ms ease,
+    background 150ms ease;
+}
+
+.ops-secret-snippet__copy-btn:hover {
+  background: var(--iquji-color-fill-hover, rgba(0, 0, 0, 0.06));
+  color: var(--iquji-color-text);
+}
+
+.ops-secret-snippet__copy-btn.is-copied {
+  color: #10b981;
+}
+
+.ops-secret-snippet__feedback {
+  font-size: 11px;
+  font-weight: 500;
+}
+
+/* 凭据详情抽屉分栏 */
+.ops-secret-detail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iquji-space-3);
+  min-width: 0;
+}
+
+.ops-secret-detail__tabs {
+  margin-bottom: var(--iquji-space-2);
+}
+
+/* 凭据属性展示网格 */
+.ops-secret-meta-grid {
+  display: grid;
+  gap: var(--iquji-space-3);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: var(--iquji-space-2);
+}
+
+@media (max-width: 600px) {
+  .ops-secret-meta-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ops-secret-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iquji-space-1);
+  min-width: 0;
+}
+
+.ops-secret-meta-item__label {
+  color: var(--iquji-color-muted);
+  font-size: var(--iquji-font-size-caption);
+}
+
+.ops-secret-meta-item__text {
+  color: var(--iquji-color-text);
+  font-size: var(--iquji-font-size-body-sm);
+  font-weight: 500;
+}
+
+/* 列表表格标题单元格带图标 */
+.ops-table-title-cell {
+  align-items: center;
+  display: flex;
+  gap: var(--iquji-space-3);
+  min-width: 0;
+}
+
+.ops-table-title-cell__icon {
+  align-items: center;
+  background: var(--iquji-color-fill-secondary, rgba(0, 0, 0, 0.03));
+  border: 1px solid var(--iquji-color-border-subtle);
+  border-radius: 6px;
+  color: var(--iquji-color-muted);
+  display: flex;
+  flex-shrink: 0;
+  height: 32px;
+  justify-content: center;
+  width: 32px;
+}
+
+/* 凭据关联标签列表 */
+.ops-secret-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iquji-space-2);
+  margin-top: var(--iquji-space-2);
+}
+
+.ops-secret-tag {
+  align-items: center;
+  background: var(--iquji-color-fill-secondary);
+  border: 1px solid var(--iquji-color-border-subtle);
+  border-radius: var(--iquji-radius-pill, 9999px);
+  color: var(--iquji-color-text);
+  display: inline-flex;
+  font-size: var(--iquji-font-size-caption);
+  gap: var(--iquji-space-1);
+  padding: 4px 10px;
+}
+
+/* 凭据危险与删除卡片 */
+.ops-danger-card {
+  background: var(--iquji-color-surface);
+  border: 1px solid var(--iquji-color-border-danger, #fca5a5);
+  border-radius: var(--iquji-radius-panel);
+  display: flex;
+  flex-direction: column;
+  gap: var(--iquji-space-3);
+  padding: var(--iquji-space-4);
+}
+
+.ops-danger-card__header {
+  align-items: center;
+  color: var(--iquji-color-danger, #ef4444);
+  display: flex;
+  gap: var(--iquji-space-2);
+}
+
+.ops-danger-card__title {
+  color: var(--iquji-color-text);
+  font-size: var(--iquji-font-size-body);
+  font-weight: 600;
+  margin: 0;
+}
+
+.ops-danger-card__desc {
+  color: var(--iquji-color-muted);
+  font-size: var(--iquji-font-size-body-sm);
+  margin: 0;
+}
+
+.ops-secret-blocker-list {
+  color: var(--iquji-color-danger, #ef4444);
+  font-size: var(--iquji-font-size-body-sm);
+  margin: var(--iquji-space-2) 0 0;
+  padding-left: 1.25rem;
+}
+
+.ops-secret-blocker-list li {
+  margin-bottom: var(--iquji-space-1);
+}
+
+/* 统一抽屉底部操作栏 */
+.ops-drawer-footer-actions {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.ops-drawer-footer-actions__left {
+  align-items: center;
+  display: flex;
+  gap: var(--iquji-space-2);
+}
+
+.ops-drawer-footer-actions__right {
+  align-items: center;
+  display: flex;
+  gap: var(--iquji-space-2);
+}
+
+.ops-drawer-footer-actions--end {
+  justify-content: flex-end;
+  gap: var(--iquji-space-2);
+}
+
+/* 轮换抽屉状态对比卡片 */
+.ops-rotation-state-card {
+  background: var(--iquji-color-fill-secondary, rgba(0, 0, 0, 0.03));
+  border: 1px solid var(--iquji-color-border-subtle);
+  border-radius: var(--iquji-radius-panel);
+  display: flex;
+  flex-direction: column;
+  gap: var(--iquji-space-2);
+  padding: var(--iquji-space-3) var(--iquji-space-4);
+}
+
+.ops-rotation-state-row {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--iquji-space-3);
+}
+
+.ops-rotation-state-label {
+  color: var(--iquji-color-muted);
+  font-size: var(--iquji-font-size-caption);
+}
+
+.ops-rotation-state-value {
+  color: var(--iquji-color-text);
+  font-size: var(--iquji-font-size-body-sm);
+  font-weight: 500;
+}
+
+/* 确认删除对话框级联与阻断信息 */
+.ops-confirm-delete-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iquji-space-3);
+  margin-top: var(--iquji-space-2);
+}
+
+.ops-confirm-impact-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iquji-space-1);
+  margin: var(--iquji-space-1) 0 0;
+  padding-left: var(--iquji-space-4);
+  font-size: var(--iquji-font-size-caption);
+}
+
+.ops-confirm-impact-list strong {
+  font-weight: 600;
+}
+
+.ops-input-changes {
+  display: grid;
+  font-size: var(--iquji-font-size-caption);
+}

@@ -1,0 +1,4 @@
+[[permission]]
+identifier = "allow-reload-webview"
+description = "允许主窗口普通刷新或向源站重新验证当前页面。"
+commands.allow = ["reload_webview"]

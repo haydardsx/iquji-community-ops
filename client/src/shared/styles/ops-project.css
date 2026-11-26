@@ -1,0 +1,573 @@
+.ops-project-workspace {
+  display: grid;
+  align-content: start;
+  gap: var(--iquji-space-4);
+  min-width: 0;
+  padding: var(--iquji-space-5);
+}
+.ops-project-header {
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--iquji-space-4);
+}
+.ops-project-heading {
+  min-width: 0;
+}
+.ops-project-heading h1 {
+  margin: 0;
+  font-size: var(--iquji-font-size-title-md);
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.ops-project-heading p {
+  color: var(--iquji-color-muted);
+  font-size: var(--iquji-font-size-body-sm);
+  margin: var(--iquji-space-1) 0 0;
+  max-width: 64ch;
+}
+.ops-project-content {
+  min-width: 0;
+}
+.ops-project-list {
+  display: grid;
+  gap: var(--iquji-space-4);
+  min-width: 0;
+}
+.ops-project-search {
+  max-width: 280px;
+  flex: 1;
+  min-width: 160px;
+}
+.ops-section-heading {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--iquji-space-3);
+}
+.ops-section-heading p {
+  margin: var(--iquji-space-1) 0 0;
+}
+
+/* ==========================================================================
+   应用详情页
+   ========================================================================== */
+
+/* 应用详情的标签和保存栏固定，表单内容负责纵向滚动。 */
+.ops-workbench__center:has(> .ops-application-page) {
+  overflow: clip;
+}
+
+.ops-application-page {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+  padding: var(--iquji-space-5);
+  position: relative;
+  width: 100%;
+}
+
+.ops-application-page__header {
+  align-items: flex-start;
+  display: flex;
+  flex-shrink: 0;
+  gap: var(--iquji-space-4);
+  justify-content: space-between;
+  margin-bottom: var(--iquji-space-3);
+  min-width: 0;
+}
+
+.ops-application-page__heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iquji-space-1);
+  min-width: 0;
+}
+
+.ops-application-page__breadcrumb {
+  align-items: center;
+  color: var(--iquji-color-muted);
+  display: flex;
+  font-size: var(--iquji-font-size-caption);
+  gap: var(--iquji-space-1);
+}
+
+button.ops-application-page__back-link {
+  background: transparent;
+  border: none;
+  color: var(--iquji-color-muted);
+  cursor: pointer;
+  font-size: var(--iquji-font-size-caption);
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+button.ops-application-page__back-link:hover {
+  background: transparent;
+  color: var(--iquji-color-text);
+}
+
+.ops-application-page__separator {
+  color: var(--iquji-color-border);
+}
+
+.ops-application-page__current {
+  color: var(--iquji-color-text);
+  font-weight: 500;
+}
+
+.ops-application-page__title-row {
+  align-items: center;
+  display: flex;
+  gap: var(--iquji-space-2);
+}
+
+.ops-application-page__title-row h1 {
+  font-size: var(--iquji-font-size-title-md);
+  font-weight: 600;
+  line-height: var(--iquji-line-height-title-md);
+  margin: 0;
+}
+
+.ops-application-page__toolbar {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+}
+
+.ops-application-page__tabs {
+  border-bottom: 1px solid var(--iquji-color-border);
+  flex-shrink: 0;
+  margin-bottom: var(--iquji-space-4);
+}
+
+.ops-application-page__content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-height: 0;
+  overflow-y: auto;
+  padding-bottom: var(--iquji-space-6);
+  padding-right: 4px;
+}
+
+.ops-application-page__content[data-tab="logs"] {
+  padding-bottom: var(--iquji-space-3);
+  padding-right: 0;
+}
+
+.ops-application-logs {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: var(--iquji-space-3);
+  min-height: 0;
+  min-width: 0;
+}
+
+.ops-application-logs__header {
+  align-items: flex-end;
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  gap: var(--iquji-space-3);
+  justify-content: space-between;
+}
+
+.ops-application-logs__meta {
+  color: var(--iquji-color-muted);
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  font-size: var(--iquji-font-size-caption);
+  gap: var(--iquji-space-2);
+  line-height: var(--iquji-line-height-caption);
+  margin: 0;
+}
+
+.ops-application-logs .iquji-log-viewer {
+  min-height: 240px;
+}
+
+.ops-application-logs__loading {
+  align-items: center;
+  background: var(--iquji-color-surface-subtle, var(--iquji-color-surface-muted));
+  border: 1px solid var(--iquji-color-border-subtle, var(--iquji-color-border));
+  border-radius: var(--iquji-radius-control, 6px);
+  display: flex;
+  justify-content: center;
+  min-height: 400px;
+}
+
+.ops-application-logs__viewer-wrapper {
+  border: 1px solid var(--iquji-color-border-subtle, #e5e7eb);
+  border-radius: var(--iquji-radius-control, 8px);
+  display: flex;
+  flex-direction: column;
+  height: 560px;
+  min-height: 400px;
+  overflow: hidden;
+  position: relative;
+}
+
+.ops-application-logs__viewer-wrapper .iquji-log-viewer {
+  border: none;
+  border-radius: 0;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.ops-application-logs__page-size {
+  width: 105px;
+}
+
+.ops-application-logs__page-size .iquji-select {
+  font-size: 12px;
+}
+
+.ops-application-logs__pagination-bar {
+  align-items: center;
+  background: var(--iquji-color-surface, #ffffff);
+  border-top: 1px solid var(--iquji-color-border-subtle, #e5e7eb);
+  display: flex;
+  flex-shrink: 0;
+  justify-content: flex-end;
+  padding: 8px 12px;
+}
+
+.ops-application-logs__summary {
+  color: var(--iquji-color-muted, #64748b);
+  font-size: var(--iquji-font-size-caption, 12px);
+}
+
+.ops-application-page__footer {
+  align-items: center;
+  background: var(--iquji-color-surface);
+  border-top: 1px solid var(--iquji-color-border);
+  box-sizing: border-box;
+  display: flex;
+  flex-shrink: 0;
+  gap: var(--iquji-space-3);
+  justify-content: space-between;
+  margin: 0 calc(-1 * var(--iquji-space-5)) calc(-1 * var(--iquji-space-5));
+  padding: var(--iquji-space-3) var(--iquji-space-5);
+  width: calc(100% + 2 * var(--iquji-space-5));
+}
+.ops-service-editor {
+  display: grid;
+  gap: var(--iquji-space-4);
+  border: 1px solid var(--iquji-color-border);
+  border-radius: var(--iquji-radius-control);
+  padding: var(--iquji-space-4);
+}
+.ops-import-row {
+  align-items: end;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--iquji-space-3);
+}
+.ops-route-rule {
+  align-items: end;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+  gap: var(--iquji-space-3);
+}
+.ops-field-error {
+  color: var(--iquji-color-danger);
+  font-size: var(--iquji-font-size-caption);
+  margin: var(--iquji-space-1) 0;
+}
+.ops-readonly {
+  display: grid;
+  gap: var(--iquji-space-1);
+  padding: var(--iquji-space-2) var(--iquji-space-3);
+  background: var(--iquji-color-surface-muted);
+  border-radius: var(--iquji-radius-control);
+}
+.ops-readonly span {
+  color: var(--iquji-color-muted);
+  font-size: var(--iquji-font-size-caption);
+}
+.ops-readonly strong {
+  font-size: var(--iquji-font-size-body-sm);
+  overflow-wrap: anywhere;
+}
+@media (max-width: 720px) {
+  .ops-project-workspace {
+    padding: var(--iquji-space-3);
+  }
+  .ops-project-header {
+    flex-wrap: wrap;
+  }
+  .ops-project-header > .ops-row {
+    width: 100%;
+  }
+  .ops-import-row,
+  .ops-route-rule {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.ops-table-cell-stack {
+  align-items: start;
+  display: grid;
+  gap: var(--iquji-space-1);
+  min-width: 0;
+}
+.ops-table-cell-stack > .ops-muted {
+  font-size: var(--iquji-font-size-caption);
+}
+
+/* ==========================================================================
+   项目与应用树
+   ========================================================================== */
+
+.ops-tree-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+}
+
+.ops-tree-branch {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* 统一树行基类 */
+.ops-tree-row {
+  align-items: center;
+  border-radius: var(--iquji-radius-control);
+  box-sizing: border-box;
+  display: flex;
+  min-height: 32px;
+  position: relative;
+  transition:
+    background 120ms ease,
+    color 120ms ease;
+  width: 100%;
+}
+
+.ops-tree-row:hover {
+  background: var(--iquji-color-surface-hover);
+}
+
+/* 项目行选中态 */
+.ops-tree-row--project[data-selected="true"] {
+  background: var(--iquji-color-surface-hover);
+}
+
+.ops-tree-row--project[data-selected="true"]::before {
+  background: var(--iquji-color-primary, #3b82f6);
+  border-radius: 2px;
+  bottom: 6px;
+  content: "";
+  left: 0;
+  position: absolute;
+  top: 6px;
+  width: 3px;
+}
+
+/* 折叠/展开小箭头 */
+.ops-tree-arrow-btn {
+  color: var(--iquji-color-muted);
+  flex-shrink: 0;
+  height: 24px;
+  margin-left: 2px;
+  opacity: 0.7;
+  padding: 0;
+  transition:
+    opacity 120ms ease,
+    color 120ms ease;
+  width: 24px;
+}
+
+.ops-tree-arrow-btn:hover {
+  color: var(--iquji-color-text);
+  opacity: 1;
+}
+
+/* 项目标签主体按钮 */
+.ops-tree-list button.ops-tree-label-btn {
+  align-items: center;
+  background: transparent;
+  border: none;
+  border-radius: var(--iquji-radius-control);
+  box-sizing: border-box;
+  color: var(--iquji-color-text);
+  display: flex;
+  flex: 1 1 auto;
+  font-size: var(--iquji-font-size-body-sm);
+  font-weight: 500;
+  gap: var(--iquji-space-2);
+  height: 32px;
+  justify-content: flex-start;
+  min-width: 0;
+  padding: 0 4px;
+  text-align: left;
+}
+
+.ops-tree-list button.ops-tree-label-btn:hover {
+  background: transparent;
+}
+
+.ops-tree-label-btn .ops-tree-icon {
+  color: var(--iquji-color-muted);
+  flex-shrink: 0;
+}
+
+.ops-tree-row--project[data-selected="true"] .ops-tree-label-btn,
+.ops-tree-row--project[data-has-child-selected="true"] .ops-tree-label-btn {
+  font-weight: 600;
+}
+
+.ops-tree-text {
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 项目数量小胶囊 */
+.ops-tree-count-pill {
+  background: var(--iquji-color-surface-muted, rgba(0, 0, 0, 0.04));
+  border-radius: 999px;
+  color: var(--iquji-color-muted);
+  flex-shrink: 0;
+  font-size: var(--iquji-font-size-micro);
+  font-weight: 500;
+  line-height: var(--iquji-line-height-micro);
+  margin-left: auto;
+  padding: 2px 6px;
+}
+
+/* 操作按钮 */
+.ops-tree-actions {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  margin-right: 4px;
+  opacity: 0;
+  transition: opacity 120ms ease;
+}
+
+.ops-tree-row:hover .ops-tree-actions,
+.ops-tree-row:focus-within .ops-tree-actions {
+  opacity: 1;
+}
+
+.ops-tree-more-btn {
+  color: var(--iquji-color-muted);
+  height: 24px;
+  width: 24px;
+}
+
+.ops-tree-more-btn:hover {
+  color: var(--iquji-color-text);
+}
+
+/* 子节点列表 */
+.ops-tree-sublist {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding-left: 20px;
+  width: 100%;
+}
+
+.ops-tree-loading-row {
+  padding: 4px 8px;
+}
+
+/* 应用子项 */
+.ops-tree-row--app {
+  min-height: 28px;
+}
+
+.ops-tree-list button.ops-tree-app-btn {
+  align-items: center;
+  background: transparent;
+  border: none;
+  border-radius: var(--iquji-radius-control);
+  box-sizing: border-box;
+  color: var(--iquji-color-text);
+  display: flex;
+  flex: 1 1 auto;
+  font-size: var(--iquji-font-size-body-sm);
+  font-weight: 400;
+  gap: var(--iquji-space-2);
+  height: 28px;
+  justify-content: flex-start;
+  min-width: 0;
+  padding: 0 var(--iquji-space-2);
+  text-align: left;
+}
+
+.ops-tree-list button.ops-tree-app-btn:hover {
+  background: transparent;
+}
+
+.ops-tree-row--app[data-selected="true"] {
+  background: var(--iquji-color-surface-hover);
+  color: var(--iquji-color-primary, #3b82f6);
+}
+
+.ops-tree-row--app[data-selected="true"] .ops-tree-app-btn {
+  color: var(--iquji-color-primary, #3b82f6);
+  font-weight: 600;
+}
+
+.ops-tree-row--app[data-selected="true"]::before {
+  background: var(--iquji-color-primary, #3b82f6);
+  border-radius: 999px;
+  bottom: 7px;
+  content: "";
+  left: 2px;
+  position: absolute;
+  top: 7px;
+  width: 3px;
+}
+
+/* 新建应用项 */
+.ops-tree-row--action {
+  min-height: 26px;
+}
+
+.ops-tree-list button.ops-tree-action-btn {
+  align-items: center;
+  background: transparent;
+  border: none;
+  border-radius: var(--iquji-radius-control);
+  box-sizing: border-box;
+  color: var(--iquji-color-muted);
+  display: flex;
+  flex: 1 1 auto;
+  font-size: var(--iquji-font-size-caption);
+  font-weight: 500;
+  gap: var(--iquji-space-1);
+  height: 26px;
+  justify-content: flex-start;
+  min-width: 0;
+  padding: 0 var(--iquji-space-2);
+  text-align: left;
+  transition: color 120ms ease;
+}
+
+.ops-tree-list button.ops-tree-action-btn:hover {
+  background: transparent;
+  color: var(--iquji-color-primary, #3b82f6);
+}
+
+.ops-tree-row--action:hover {
+  background: var(--iquji-color-surface-hover);
+}
+
+/* ==========================================================================
+   环境变量紧凑表格布局
+   ========================================================================== */

@@ -1,0 +1,33 @@
+{
+  "id": "pmail",
+  "name": "PMail",
+  "description": "自托管邮箱，使用 PMail v2.9.9 官方镜像。先通过私有连接完成初始化，选择 SQLite，为邮件协议配置域名证书。Web 设为 HTTP（httpsEnabled=2）并在完成初始化后发布 HTTPS 路由。",
+  "config": {
+    "sourceConfig": {
+      "provider": "image",
+      "image": "ghcr.io/jinnrry/pmail@sha256:e31ee209d5e00646a9a40d7a9e1e2702d0beb9f0a9562be8cd7cf93e678b7aac"
+    },
+    "swarmRuntime": {
+      "services": [
+        { "slotKey": "main", "replicas": 1 }
+      ],
+      "ports": [
+        { "name": "web", "protocol": "http", "targetPort": 80 },
+        { "name": "smtp", "protocol": "tcp", "targetPort": 25, "publishedPort": 25 },
+        { "name": "smtps", "protocol": "tcp", "targetPort": 465, "publishedPort": 465 },
+        { "name": "submission", "protocol": "tcp", "targetPort": 587, "publishedPort": 587 },
+        { "name": "imaps", "protocol": "tcp", "targetPort": 993, "publishedPort": 993 },
+        { "name": "pop3s", "protocol": "tcp", "targetPort": 995, "publishedPort": 995 }
+      ],
+      "volumes": [
+        { "name": "config", "target": "/work/config" }
+      ],
+      "healthCommand": ["wget", "-q", "-O", "/dev/null", "http://127.0.0.1/"]
+    },
+    "outputVariables": [
+      { "key": "SERVICE_HOST", "valueSource": "service_host", "serviceSlotKey": "main", "visibility": "project" },
+      { "key": "SUBMISSION_PORT", "valueSource": "service_port", "serviceSlotKey": "main", "portName": "submission", "visibility": "project" },
+      { "key": "IMAPS_PORT", "valueSource": "service_port", "serviceSlotKey": "main", "portName": "imaps", "visibility": "project" }
+    ]
+  }
+}

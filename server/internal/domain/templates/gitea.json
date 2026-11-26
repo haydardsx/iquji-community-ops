@@ -1,0 +1,149 @@
+{
+  "id": "gitea",
+  "name": "Gitea",
+  "description": "提供 Git 仓库、HTTP 与 SSH 访问。",
+  "config": {
+    "sourceConfig": {
+      "provider": "image",
+      "image": "docker.gitea.com/gitea:28.4.0"
+    },
+    "swarmRuntime": {
+      "overlayNetwork": "iquops-public",
+      "ports": [
+        {
+          "name": "web",
+          "targetPort": 3000,
+          "protocol": "http",
+          "publishedPort": 3000
+        },
+        {
+          "name": "ssh",
+          "targetPort": 22,
+          "protocol": "tcp",
+          "publishedPort": 2222
+        }
+      ],
+      "volumes": [
+        {
+          "name": "data",
+          "target": "/data"
+        }
+      ],
+      "healthCommand": [
+        "curl",
+        "-fsS",
+        "http://127.0.0.1:3000/api/healthz"
+      ],
+      "initializeCommand": [
+        "sh",
+        "-ec",
+        "umask 077\nstamp=/data/.iquops-gitea-admin-init-v1\nadmins=$(su-exec git gitea --config /data/gitea/conf/app.ini admin user list --admin)\nread_admin() {\n  printf '%s\\n' \"$admins\" | awk -v name=\"$GITEA_ADMIN_USERNAME\" '$1 ~ /^[0-9]+$/ && tolower($2) == tolower(name) && $4 == \"true\" {print $1}'\n}\nadmin_id=$(read_admin)\nif [ -z \"$admin_id\" ]; then\n  [ ! -e \"$stamp\" ]\n  su-exec git gitea --config /data/gitea/conf/app.ini admin user create --username \"$GITEA_ADMIN_USERNAME\" --email \"$GITEA_ADMIN_EMAIL\" --password \"$GITEA_ADMIN_PASSWORD\" --admin --must-change-password=true >/dev/null\n  admins=$(su-exec git gitea --config /data/gitea/conf/app.ini admin user list --admin)\n  admin_id=$(read_admin)\n  [ -n \"$admin_id\" ]\nfi\n# 数据卷仅保存已验证初始化输入的摘要。用户自行改密后，例行重启沿用既有初始化记录。\nfingerprint=$(printf '%s\\0' \"$admin_id\" \"$GITEA_ADMIN_USERNAME\" \"$GITEA_ADMIN_EMAIL\" \"$GITEA_ADMIN_PASSWORD\" | sha256sum | cut -d ' ' -f 1)\n[ ! -L \"$stamp\" ]\nif [ -f \"$stamp\" ] && [ \"$(cat \"$stamp\")\" = \"$fingerprint\" ]; then exit 0; fi\nprintf '%s\\n' \"$admins\" | awk -v id=\"$admin_id\" -v email=\"$GITEA_ADMIN_EMAIL\" '$1 == id && tolower($3) == tolower(email) {found=1} END {exit !found}'\nbody=$(mktemp)\nnext=$(mktemp /data/.iquops-gitea-admin-init.XXXXXX)\ntrap 'rm -f \"$body\" \"$next\"' EXIT\nauth=$(printf '%s:%s' \"$GITEA_ADMIN_USERNAME\" \"$GITEA_ADMIN_PASSWORD\" | base64 | tr -d '\\n')\nstatus=$(printf 'Authorization: Basic %s\\n' \"$auth\" | curl --silent --show-error --max-time 8 --header @- --output \"$body\" --write-out '%{http_code}' http://127.0.0.1:3000/api/v1/user)\ncase \"$status\" in\n  200) grep -Eq '\"is_admin\"[[:space:]]*:[[:space:]]*true' \"$body\" ;;\n  403) grep -Fq 'You must change your password. Change it at:' \"$body\" ;;\n  *) exit 1 ;;\nesac\nprintf '%s\\n' \"$fingerprint\" >\"$next\"\nmv -f \"$next\" \"$stamp\""
+      ]
+    },
+    "environmentVariables": [
+      {
+        "key": "GITEA__database__DB_TYPE",
+        "stage": "runtime",
+        "scope": "global",
+        "valueSource": "plain_text",
+        "isRequired": true,
+        "plainValue": "sqlite3"
+      },
+      {
+        "key": "GITEA__security__INSTALL_LOCK",
+        "stage": "runtime",
+        "scope": "global",
+        "valueSource": "plain_text",
+        "isRequired": true,
+        "plainValue": "true"
+      },
+      {
+        "key": "GITEA__service__DISABLE_REGISTRATION",
+        "stage": "runtime",
+        "scope": "global",
+        "valueSource": "plain_text",
+        "isRequired": true,
+        "plainValue": "true"
+      },
+      {
+        "key": "GITEA__server__ROOT_URL",
+        "stage": "runtime",
+        "scope": "global",
+        "valueSource": "plain_text",
+        "isRequired": true,
+        "plainValue": "http://git.example.invalid:3000/"
+      },
+      {
+        "key": "GITEA__server__SSH_DOMAIN",
+        "stage": "runtime",
+        "scope": "global",
+        "valueSource": "plain_text",
+        "isRequired": true,
+        "plainValue": "git.example.invalid"
+      },
+      {
+        "key": "GITEA__server__SSH_PORT",
+        "stage": "runtime",
+        "scope": "global",
+        "valueSource": "plain_text",
+        "isRequired": true,
+        "plainValue": "2222"
+      },
+      {
+        "key": "GITEA_ADMIN_USERNAME",
+        "stage": "runtime",
+        "scope": "global",
+        "valueSource": "plain_text",
+        "isRequired": true,
+        "plainValue": "admin",
+        "description": "首次初始化账号和数据时使用。已有数据卷上的账号需在服务内维护。"
+      },
+      {
+        "key": "GITEA_ADMIN_EMAIL",
+        "stage": "runtime",
+        "scope": "global",
+        "valueSource": "plain_text",
+        "isRequired": true,
+        "plainValue": "admin@example.invalid",
+        "description": "首次初始化账号和数据时使用。已有数据卷上的账号需在服务内维护。"
+      },
+      {
+        "key": "GITEA_ADMIN_PASSWORD",
+        "stage": "runtime",
+        "scope": "global",
+        "valueSource": "secret_ref",
+        "isRequired": true,
+        "description": "首次创建管理员时使用，首次登录必须改密。更换此凭据时，请先在 Gitea 设置相同密码，再重启应用验证。"
+      }
+    ],
+    "outputVariables": [
+      {
+        "key": "INSTANCE_URL",
+        "valueSource": "variable",
+        "variableKey": "GITEA__server__ROOT_URL",
+        "variableStage": "runtime",
+        "visibility": "project"
+      },
+      {
+        "key": "SERVICE_HOST",
+        "valueSource": "service_host",
+        "serviceSlotKey": "main",
+        "visibility": "project"
+      },
+      {
+        "key": "WEB_PORT",
+        "valueSource": "service_port",
+        "serviceSlotKey": "main",
+        "portName": "web",
+        "visibility": "project"
+      },
+      {
+        "key": "SSH_PORT",
+        "valueSource": "service_port",
+        "serviceSlotKey": "main",
+        "portName": "ssh",
+        "visibility": "project"
+      }
+    ]
+  }
+}

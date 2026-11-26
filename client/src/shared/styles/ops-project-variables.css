@@ -1,0 +1,176 @@
+.ops-variables-table {
+  border: 1px solid var(--iquji-color-border);
+  border-radius: var(--iquji-radius-panel);
+  background: var(--iquji-color-surface);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%;
+}
+
+.iquji-popover-popup.ops-variable-guide-popover {
+  padding: var(--iquji-space-3) var(--iquji-space-4);
+  width: min(22rem, calc(100vw - 24px));
+}
+
+.ops-variable-guide {
+  color: var(--iquji-color-muted);
+  display: flex;
+  flex-direction: column;
+  gap: var(--iquji-space-2);
+}
+
+.ops-variable-guide__title {
+  align-items: center;
+  border-bottom: 1px solid var(--iquji-color-border-subtle, var(--iquji-color-border));
+  color: var(--iquji-color-text);
+  display: flex;
+  font-size: var(--iquji-font-size-body-sm);
+  font-weight: 600;
+  gap: var(--iquji-space-2);
+  line-height: var(--iquji-line-height-body-sm);
+  padding-bottom: var(--iquji-space-2);
+}
+
+.ops-variable-guide__items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--iquji-space-2);
+}
+
+.ops-variable-guide__item {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--iquji-font-size-caption);
+  gap: 2px;
+  line-height: var(--iquji-line-height-caption);
+}
+
+.ops-variable-guide__item + .ops-variable-guide__item {
+  border-top: 1px solid var(--iquji-color-border-subtle, var(--iquji-color-border));
+  padding-top: var(--iquji-space-2);
+}
+
+.ops-variable-guide__item strong {
+  color: var(--iquji-color-text);
+  font-weight: 600;
+}
+
+.ops-variable-value-cell {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.ops-variable-value-cell > :first-child {
+  width: 100%;
+}
+
+.ops-variable-value-cell .iquji-button {
+  color: var(--iquji-color-primary, #2563eb);
+  font-size: var(--iquji-font-size-caption);
+  min-height: 24px;
+  padding: 0;
+}
+
+.ops-variable-scope-hint {
+  color: var(--iquji-color-muted);
+  display: flex;
+  flex-direction: column;
+  font-size: var(--iquji-font-size-caption);
+  gap: 2px;
+  line-height: 1.4;
+}
+
+.ops-variable-scope-hint strong {
+  color: var(--iquji-color-text);
+  font-weight: 600;
+}
+
+.ops-variables-table__header {
+  align-items: center;
+  background: var(--iquji-color-surface-raised);
+  border-bottom: 1px solid var(--iquji-color-border);
+  color: var(--iquji-color-muted);
+  display: grid;
+  font-size: var(--iquji-font-size-caption);
+  font-weight: 600;
+  gap: var(--iquji-space-3);
+  grid-template-columns: minmax(200px, 2fr) 120px minmax(150px, 1.2fr) minmax(180px, 2fr) 36px;
+  padding: var(--iquji-space-2) var(--iquji-space-3);
+  user-select: none;
+}
+
+.ops-variables-table[data-columns="6"] .ops-variables-table__header {
+  grid-template-columns: minmax(180px, 2fr) 115px 125px 115px minmax(170px, 2fr) 36px;
+}
+
+.ops-variable-row-wrapper {
+  border-bottom: 1px solid var(--iquji-color-border);
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+}
+
+.ops-variable-row-wrapper:last-child {
+  border-bottom: none;
+}
+
+.ops-variable-row {
+  align-items: center;
+  display: grid;
+  gap: var(--iquji-space-3);
+  grid-template-columns: minmax(200px, 2fr) 120px minmax(150px, 1.2fr) minmax(180px, 2fr) 36px;
+  padding: var(--iquji-space-2) var(--iquji-space-3);
+  background: transparent;
+}
+
+.ops-variables-table[data-columns="6"] .ops-variable-row {
+  grid-template-columns: minmax(180px, 2fr) 115px 125px 115px minmax(170px, 2fr) 36px;
+}
+
+.ops-variable-services-panel {
+  background: var(--iquji-color-surface-raised);
+  border-top: 1px solid var(--iquji-color-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--iquji-space-2);
+  padding: var(--iquji-space-3);
+}
+
+.ops-variable-service-item {
+  align-items: center;
+  display: grid;
+  gap: var(--iquji-space-3);
+  grid-template-columns: minmax(160px, 200px) minmax(0, 1fr);
+}
+
+.ops-variable-service-badge {
+  align-items: center;
+  background: var(--iquji-color-surface);
+  border: 1px solid var(--iquji-color-border);
+  border-radius: var(--iquji-radius-control);
+  color: var(--iquji-color-text);
+  display: flex;
+  font-size: var(--iquji-font-size-caption);
+  font-weight: 500;
+  height: 32px;
+  overflow: hidden;
+  padding: 0 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .ops-variables-table__header {
+    display: none;
+  }
+  .ops-variable-row {
+    grid-template-columns: 1fr;
+  }
+  .ops-variable-service-item {
+    grid-template-columns: 1fr;
+  }
+}

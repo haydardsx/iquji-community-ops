@@ -1,0 +1,53 @@
+/* Ops 主题配色。 */
+
+:root {
+  /* 主强调色与操作色。 */
+  --iquji-color-accent: #2563eb;
+  --iquji-color-accent-strong: #1d4ed8;
+  --iquji-color-accent-contrast: #ffffff;
+  --iquji-color-accent-soft: #eff6ff;
+
+  --iquji-color-action-primary: #2563eb;
+  --iquji-color-action-primary-hover: #1d4ed8;
+  --iquji-color-primary: #2563eb;
+
+  /* 危险与告警操作色。 */
+  --iquji-color-action-danger: #dc2626;
+  --iquji-color-action-danger-hover: #b91c1c;
+
+  --iquji-focus-ring: 3px solid rgba(37, 99, 235, 0.25);
+}
+
+:root[data-theme="dark"] {
+  --iquji-color-accent: #3b82f6;
+  --iquji-color-accent-strong: #60a5fa;
+  --iquji-color-accent-contrast: #0f172a;
+  --iquji-color-accent-soft: #1e293b;
+
+  --iquji-color-action-primary: #3b82f6;
+  --iquji-color-action-primary-hover: #60a5fa;
+  --iquji-color-primary: #3b82f6;
+
+  --iquji-color-action-danger: #ef4444;
+  --iquji-color-action-danger-hover: #dc2626;
+
+  --iquji-focus-ring: 3px solid rgba(59, 130, 246, 0.35);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --iquji-color-accent: #3b82f6;
+    --iquji-color-accent-strong: #60a5fa;
+    --iquji-color-accent-contrast: #0f172a;
+    --iquji-color-accent-soft: #1e293b;
+
+    --iquji-color-action-primary: #3b82f6;
+    --iquji-color-action-primary-hover: #60a5fa;
+    --iquji-color-primary: #3b82f6;
+
+    --iquji-color-action-danger: #ef4444;
+    --iquji-color-action-danger-hover: #dc2626;
+
+    --iquji-focus-ring: 3px solid rgba(59, 130, 246, 0.35);
+  }
+}

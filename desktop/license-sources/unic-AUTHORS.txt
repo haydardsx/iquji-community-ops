@@ -1,0 +1,21 @@
+UNIC contributors
+https://github.com/open-i18n/rust-unic/blob/5878605364af97a3358368a6eaef02104af2e016/AUTHORS
+
+Alex Crichton
+Andrew Hobden
+Anthony Ramine
+Behnam Esfahbod
+Calum Forster
+Christopher Durham
+Corey Farwell
+Daniel Lockyer
+Emilio Cobos Álvarez
+Keith Yeung
+Manish Goregaokar
+Matt Brubeck
+Michael Howell
+Pyfisch
+Raph Levien
+Riad S. Wahby
+Simon Sapin
+Valentin Gosu

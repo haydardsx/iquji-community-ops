@@ -1,0 +1,122 @@
+{
+  "id": "demo-backend",
+  "name": "演示后端",
+  "description": "从公开 Git 仓库构建两个 API 服务槽位。选择 Jenkins 和部署节点，绑定 PostgreSQL 输入并填写前端的 origin。",
+  "config": {
+    "sourceConfig": {
+      "provider": "git",
+      "repositoryUrl": "https://github.com/haydardsx/demo_deploy_backend.git",
+      "ref": "main",
+      "refType": "branch",
+      "jenkinsfilePath": "Jenkinsfile",
+      "sourcePath": "."
+    },
+    "swarmRuntime": {
+      "services": [
+        {
+          "slotKey": "backend-1",
+          "replicas": 1
+        },
+        {
+          "slotKey": "backend-2",
+          "replicas": 1
+        }
+      ],
+      "containerPort": 3000,
+      "ports": [
+        {
+          "name": "web",
+          "targetPort": 3000,
+          "protocol": "http"
+        }
+      ]
+    },
+    "environmentVariables": [
+      {
+        "key": "PGHOST",
+        "stage": "runtime",
+        "scope": "global",
+        "valueSource": "output_ref",
+        "isRequired": true,
+        "description": "PostgreSQL 服务地址。"
+      },
+      {
+        "key": "PGPORT",
+        "stage": "runtime",
+        "scope": "global",
+        "valueSource": "output_ref",
+        "isRequired": true,
+        "description": "PostgreSQL 服务端口。"
+      },
+      {
+        "key": "PGDATABASE",
+        "stage": "runtime",
+        "scope": "global",
+        "valueSource": "output_ref",
+        "isRequired": true,
+        "description": "PostgreSQL 数据库名称。"
+      },
+      {
+        "key": "PGUSER",
+        "stage": "runtime",
+        "scope": "global",
+        "valueSource": "output_ref",
+        "isRequired": true,
+        "description": "PostgreSQL 业务账号。"
+      },
+      {
+        "key": "PGPASSWORD",
+        "stage": "runtime",
+        "scope": "global",
+        "valueSource": "secret_ref",
+        "isRequired": true,
+        "description": "绑定 PostgreSQL 业务账号的密码。"
+      },
+      {
+        "key": "CORS_ORIGINS",
+        "stage": "runtime",
+        "scope": "global",
+        "valueSource": "plain_text",
+        "isRequired": true,
+        "plainValue": "https://demo-web.example.com",
+        "description": "改为演示前端的实际 origin。"
+      },
+      {
+        "key": "INSTANCE_ID",
+        "stage": "runtime",
+        "scope": "service",
+        "valueSource": "plain_text",
+        "isRequired": true,
+        "plainValue": "node-1",
+        "serviceSlotKey": "backend-1"
+      },
+      {
+        "key": "SERVICE_SLOT",
+        "stage": "runtime",
+        "scope": "service",
+        "valueSource": "plain_text",
+        "isRequired": true,
+        "plainValue": "backend-1",
+        "serviceSlotKey": "backend-1"
+      },
+      {
+        "key": "INSTANCE_ID",
+        "stage": "runtime",
+        "scope": "service",
+        "valueSource": "plain_text",
+        "isRequired": true,
+        "plainValue": "node-2",
+        "serviceSlotKey": "backend-2"
+      },
+      {
+        "key": "SERVICE_SLOT",
+        "stage": "runtime",
+        "scope": "service",
+        "valueSource": "plain_text",
+        "isRequired": true,
+        "plainValue": "backend-2",
+        "serviceSlotKey": "backend-2"
+      }
+    ]
+  }
+}

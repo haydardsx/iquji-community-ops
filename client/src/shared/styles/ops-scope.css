@@ -1,0 +1,246 @@
+/* 主从侧栏布局与选择卡片。 */
+
+.ops-master-sidebar {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--iquji-space-3);
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+  padding: var(--iquji-space-3);
+}
+
+.ops-master-sidebar__header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  min-height: 32px;
+}
+
+.ops-master-sidebar__title-row {
+  align-items: center;
+  display: flex;
+  gap: var(--iquji-space-2);
+}
+
+.ops-master-sidebar__title {
+  color: var(--iquji-color-text);
+  font-size: var(--iquji-font-size-body-md, 14px);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.ops-master-sidebar__count {
+  background: var(--iquji-color-surface-muted);
+  border-radius: 999px;
+  color: var(--iquji-color-muted);
+  font-size: var(--iquji-font-size-micro);
+  font-weight: 500;
+  line-height: var(--iquji-line-height-micro);
+  padding: 2px var(--iquji-space-2);
+}
+
+.ops-master-sidebar__actions {
+  align-items: center;
+  display: flex;
+  gap: var(--iquji-space-1);
+}
+
+.ops-master-sidebar__search {
+  min-width: 0;
+}
+
+.ops-master-sidebar__list {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: var(--iquji-space-2);
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 2px;
+}
+
+/* 左侧主卡片。 */
+.ops-selection-card {
+  align-items: stretch;
+  background: var(--iquji-color-surface);
+  border: 1px solid var(--iquji-color-border);
+  border-radius: var(--iquji-radius-panel);
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: var(--iquji-space-2);
+  height: auto;
+  justify-content: flex-start;
+  min-height: 52px;
+  padding: var(--iquji-space-3);
+  position: relative;
+  text-align: left;
+  transition:
+    background 150ms ease,
+    border-color 150ms ease,
+    box-shadow 150ms ease;
+  width: 100%;
+}
+
+.ops-selection-card:hover {
+  background: var(--iquji-color-surface-hover);
+  border-color: var(--iquji-color-muted);
+}
+
+/* 激活态：左侧指示条与浅色微高亮背景 */
+.ops-selection-card[data-active="true"] {
+  background: var(--iquji-color-surface-hover);
+  border-color: var(--iquji-color-primary, #3b82f6);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.ops-selection-card[data-active="true"]::before {
+  background: var(--iquji-color-primary, #3b82f6);
+  border-radius: 2px;
+  bottom: 8px;
+  content: "";
+  left: 0;
+  position: absolute;
+  top: 8px;
+  width: 3px;
+}
+
+.ops-selection-card__top-row {
+  align-items: center;
+  display: flex;
+  gap: var(--iquji-space-2);
+  justify-content: space-between;
+  width: 100%;
+}
+
+.ops-selection-card__title-group {
+  align-items: center;
+  display: flex;
+  flex: 1 1 auto;
+  gap: var(--iquji-space-2);
+  min-width: 0;
+}
+
+.ops-selection-card__icon {
+  align-items: center;
+  color: var(--iquji-color-muted);
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-size: 14px;
+}
+
+.ops-selection-card__title {
+  color: var(--iquji-color-text);
+  font-size: var(--iquji-font-size-body-sm);
+  font-weight: 600;
+  line-height: var(--iquji-line-height-body-sm);
+  overflow: hidden;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ops-selection-card__status-group {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  gap: var(--iquji-space-1);
+}
+
+.ops-selection-card__description {
+  color: var(--iquji-color-muted);
+  font-size: var(--iquji-font-size-caption);
+  line-height: var(--iquji-line-height-caption);
+  overflow: hidden;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+.ops-selection-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--iquji-space-1);
+  width: 100%;
+}
+
+.ops-selection-card__tag {
+  background: var(--iquji-color-surface-muted);
+  border-radius: var(--iquji-radius-control);
+  color: var(--iquji-color-muted);
+  font-size: var(--iquji-font-size-micro);
+  line-height: var(--iquji-line-height-micro);
+  padding: 2px var(--iquji-space-2);
+}
+
+.ops-selection-card__meta {
+  color: var(--iquji-color-muted);
+  font-size: var(--iquji-font-size-micro);
+  line-height: var(--iquji-line-height-micro);
+  text-align: left;
+  width: 100%;
+}
+
+/* 抽屉内表单卡片与操作栏样式 */
+.ops-app-drawer-content {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--iquji-space-3);
+  padding: 0;
+}
+
+.ops-app-drawer-meta-bar {
+  align-items: center;
+  background: var(--iquji-color-surface-muted);
+  border: 1px solid var(--iquji-color-border);
+  border-radius: var(--iquji-radius-panel);
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  padding: var(--iquji-space-2) var(--iquji-space-3);
+}
+
+.ops-app-drawer-meta-info {
+  align-items: center;
+  display: flex;
+  gap: var(--iquji-space-2);
+}
+
+.ops-app-drawer-runtime-badge {
+  color: var(--iquji-color-muted);
+  font-size: var(--iquji-font-size-caption);
+  line-height: var(--iquji-line-height-caption);
+}
+
+.ops-app-drawer-body {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--iquji-space-3);
+}
+
+.ops-config-card {
+  background: var(--iquji-color-surface);
+  border: 1px solid var(--iquji-color-border);
+  border-radius: var(--iquji-radius-panel);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--iquji-space-3);
+  padding: var(--iquji-space-4);
+}
+
+.ops-card-action-bar {
+  align-items: center;
+  border-top: 1px solid var(--iquji-color-border);
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--iquji-space-2);
+  padding-top: var(--iquji-space-3);
+}

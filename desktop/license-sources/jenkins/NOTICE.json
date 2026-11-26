@@ -1,0 +1,388 @@
+{
+  "apache-httpcomponents-client-4-api@4.5.14-269.vfa_2321039a_83": {
+    "source": "https://github.com/jenkinsci/apache-httpcomponents-client-4-api-plugin/blob/fa2321039a833d1a39a1ef4e60ca30588bae463c/LICENSE.txt",
+    "files": [
+      "LICENSE-apache-httpcomponents-client-4-api.txt"
+    ]
+  },
+  "asm-api@9.10.1-216.va_9256d3b_844b_": {
+    "source": "https://github.com/jenkinsci/asm-api-plugin/blob/a9256d3b844b3808347cfbb4600a925534eba746/LICENSE.md",
+    "files": [
+      "LICENSE-asm-api.txt",
+      "LICENSE-MIT.txt"
+    ]
+  },
+  "bouncycastle-api@2.30.1.84-291.v9f17b_21896e2": {
+    "source": "https://github.com/jenkinsci/bouncycastle-api-plugin/tree/9f17b21896e28bd834536173761ee98114da83f3",
+    "files": [
+      "LICENSE-MIT.txt"
+    ],
+    "copyright": "Copyright (c) 2016-2021, CloudBees, Inc."
+  },
+  "branch-api@2.1280.v0d4e5b_b_460ef": {
+    "source": "https://github.com/jenkinsci/branch-api-plugin/tree/0d4e5bb460efb2f26be5c699de91e320dd4dfee5",
+    "files": [
+      "LICENSE-MIT.txt"
+    ],
+    "copyright": "Copyright (c) 2004-2013, Sun Microsystems, Inc., Kohsuke Kawaguchi, CloudBees, Inc.\nCopyright (c) 2004-2016, Sun Microsystems, Inc., Kohsuke Kawaguchi, Martin Eigenbrodt, CloudBees, Inc.\nCopyright (c) 2004-2017, Sun Microsystems, Inc., Kohsuke Kawaguchi, Martin Eigenbrodt, CloudBees, Inc.\nCopyright (c) 2011-2013, CloudBees, Inc., Stephen Connolly.\nCopyright (c) 2011-2017, CloudBees, Inc., Stephen Connolly.\nCopyright (c) 2013, CloudBees, Inc.\nCopyright (c) 2013, CloudBees, Inc., Stephen Connolly.\nCopyright (c) 2014, CloudBees, Inc.\nCopyright (c) 2015, CloudBees, Inc.\nCopyright (c) 2016 CloudBees, Inc.\nCopyright (c) 2016, CloudBees, Inc.\nCopyright (c) 2017 CloudBees, Inc.\nCopyright (c) 2017, CloudBees, Inc.\nCopyright (c) 2019 CloudBees, Inc.\nCopyright (c) 2019, CloudBees, Inc.\nCopyright (c) 2021, Christoph Obexer.\nCopyright 2015 CloudBees, Inc.\nCopyright 2016 CloudBees, Inc.\nCopyright 2017 CloudBees, Inc.\nCopyright 2019 CloudBees, Inc.\nCopyright 2022 CloudBees, Inc.\nCopyright 2025 Jan Faracik"
+  },
+  "caffeine-api@3.2.3-194.v31a_b_f7a_b_5a_81": {
+    "source": "https://github.com/jenkinsci/caffeine-api-plugin/blob/31abf7ab5a81d948fb7eda852b8666cc9b17c0a3/LICENSE",
+    "files": [
+      "LICENSE-caffeine-api.txt"
+    ]
+  },
+  "cloudbees-folder@6.1106.v3a_d9a_6d2465e": {
+    "source": "https://github.com/jenkinsci/cloudbees-folder-plugin/tree/3ad9a6d2465ee033158678d3362ef344630b59bf",
+    "files": [
+      "LICENSE-MIT.txt"
+    ],
+    "copyright": "Copyright (c) 2004-2009, Sun Microsystems, Inc., Alan Harder\nCopyright (c) 2004-2013, Sun Microsystems, Inc., Kohsuke Kawaguchi, CloudBees, Inc.\nCopyright (c) 2004-2015, Sun Microsystems, Inc., Kohsuke Kawaguchi, CloudBees, Inc.\nCopyright (c) 2011-2013, CloudBees, Inc., Stephen Connolly.\nCopyright (c) 2011-2015, CloudBees, Inc.\nCopyright (c) 2013, CloudBees, Inc.\nCopyright (c) 2015 CloudBees, Inc.\nCopyright (c) 2016 CloudBees, Inc.\nCopyright (c) 2016, Seiji Sogabe\nCopyright (c) 2017 CloudBees, Inc.\nCopyright (c) 2022, CloudBees, Inc.\nCopyright 2013 CloudBees.\nCopyright 2013 Jesse Glick.\nCopyright 2013-2015 CloudBees.\nCopyright 2013-2016 CloudBees, Inc.\nCopyright 2014 Jesse Glick.\nCopyright 2015 CloudBees, Inc.\nCopyright 2015-2016 CloudBees, Inc.\nCopyright 2016 CloudBees, Inc.\nCopyright 2017 CloudBees, Inc.\nCopyright 2019 CloudBees, Inc.\nCopyright 2022 CloudBees, Inc."
+  },
+  "commons-lang3-api@3.20.0-109.ve43756e2d2b_4": {
+    "source": "https://github.com/jenkinsci/commons-lang3-api-plugin/blob/e43756e2d2b46e0b0b9b84fcd285687ec06721df/LICENSE",
+    "files": [
+      "LICENSE-commons-lang3-api.txt"
+    ]
+  },
+  "commons-text-api@1.15.0-218.va_61573470393": {
+    "source": "https://github.com/jenkinsci/commons-text-api-plugin/blob/a61573470393955130aa3b14d47eed4dc336c9d9/LICENSE",
+    "files": [
+      "LICENSE-commons-lang3-api.txt"
+    ]
+  },
+  "credentials@1487.va_d001ede2c31": {
+    "source": "https://github.com/jenkinsci/credentials-plugin/blob/ad001ede2c3102c5cd50075cfac820dc5fed793f/LICENSE.txt",
+    "files": [
+      "LICENSE-credentials.txt"
+    ]
+  },
+  "credentials-binding@725.ve52b_2328a_fde": {
+    "source": "https://github.com/jenkinsci/credentials-binding-plugin/blob/e52b2328afdebcb69852687392fde94b174eaec4/LICENSE",
+    "files": [
+      "LICENSE-credentials-binding.txt"
+    ]
+  },
+  "display-url-api@2.217.va_6b_de84cc74b_": {
+    "source": "https://github.com/jenkinsci/display-url-api-plugin/blob/a6bde84cc74b8bdd752e64ec6ccb779f829e0000/LICENSE.txt",
+    "files": [
+      "LICENSE-display-url-api.txt"
+    ]
+  },
+  "durable-task@577.v2a_8a_4b_7c0247": {
+    "source": "https://github.com/jenkinsci/durable-task-plugin/tree/2a8a4b7c0247f78ab3894f40987db030b123f731",
+    "files": [
+      "LICENSE-MIT.txt"
+    ],
+    "copyright": "Copyright (c) 2013-2014, CloudBees, Inc.\nCopyright 2014 CloudBees, Inc.\nCopyright 2014 Jesse Glick.\nCopyright 2016 CloudBees, Inc.\nCopyright 2017 Gabriel Loewen"
+  },
+  "git@5.8.1": {
+    "source": "https://github.com/jenkinsci/git-plugin/tree/46e9e60946b75556c4452c406ef24cbf64254af8",
+    "files": [
+      "LICENSE-MIT.txt"
+    ],
+    "copyright": "Copyright (c) 2004-2009, Sun Microsystems, Inc., Kohsuke Kawaguchi, Seiji Sogabe, Tom Huybrechts, id:cactusman\nCopyright (c) 2004-2010, Sun Microsystems, Inc., Kohsuke Kawaguchi, Seiji Sogabe, Alan Harder\nCopyright (c) 2004-2012, Chris Johnson\nCopyright (c) 2009-2010, CloudBees, Inc.\nCopyright (c) 2011, CloudBees, Inc.\nCopyright (c) 2013, CloudBees, Inc., Stephen Connolly.\nCopyright (c) 2013-2017, CloudBees, Inc., Stephen Connolly, Amadeus IT Group.\nCopyright (c) 2016 CloudBees, Inc.\nCopyright (c) 2017 CloudBees, Inc.\nCopyright (c) 2017 Stephen Connolly\nCopyright (c) 2017, CloudBees, Inc.\nCopyright (c) 2018 CloudBees, Inc.\nCopyright (c) 2018, CloudBees, Inc.\nCopyright (c) 2020 Nikolas Falco\nCopyright (c) 2021 CloudBees, Inc.\nCopyright (c) 2021, CloudBees, Inc.\nCopyright 2011 CloudBees, Inc.\nCopyright 2014 Jesse Glick.\nCopyright 2017 CloudBees, Inc."
+  },
+  "git-client@6.6.1": {
+    "source": "https://github.com/jenkinsci/git-client-plugin/blob/29afd4ce27c47dbce47ac729232236b5d6219c97/LICENSE",
+    "files": [
+      "LICENSE-git-client.txt"
+    ]
+  },
+  "gson-api@2.14.0-201.v8eefe5515533": {
+    "source": "https://github.com/jenkinsci/gson-api-plugin/blob/8eefe5515533e500b31d49c6729869cb589dead8/LICENSE.md",
+    "files": [
+      "LICENSE-gson-api.txt"
+    ]
+  },
+  "instance-identity@203.v15e81a_1b_7a_38": {
+    "source": "https://github.com/jenkinsci/instance-identity-plugin/blob/15e81a1b7a387c092681197e0f247acf282311ae/LICENSE.txt",
+    "files": [
+      "LICENSE-instance-identity.txt"
+    ]
+  },
+  "ionicons-api@94.vcc3065403257": {
+    "source": "https://github.com/jenkinsci/ionicons-api-plugin/blob/cc306540325702e7152c058e313214e15a2ba56c/LICENSE",
+    "files": [
+      "LICENSE-ionicons-api.txt"
+    ]
+  },
+  "jackson-annotations2-api@2.21-7.v4777a_f3a_a_d47": {
+    "source": "https://github.com/jenkinsci/jackson-annotations2-api-plugin/blob/4777af3aad472420c0ae09dd55d2c163783693a9/LICENSE.txt",
+    "files": [
+      "LICENSE-commons-lang3-api.txt"
+    ]
+  },
+  "jackson2-api@2.21.2-436.v29efdb_7418ff": {
+    "source": "https://github.com/jenkinsci/jackson2-api-plugin/blob/29efdb7418ffe06820a670a385f77c5dca6a2a8a/LICENSE.txt",
+    "files": [
+      "LICENSE-commons-lang3-api.txt"
+    ]
+  },
+  "jakarta-activation-api@2.1.4-1": {
+    "source": "https://github.com/jenkinsci/jakarta-activation-api-plugin/blob/e9a8aa1c3186ff3ee76e6939bcd9b913bd4dec69/LICENSE",
+    "files": [
+      "LICENSE-jakarta-activation-api.txt"
+    ]
+  },
+  "jakarta-mail-api@2.1.5-1": {
+    "source": "https://github.com/jenkinsci/jakarta-mail-api-plugin/blob/b263be5426e0bc614aa55ead225e1c3e005592e2/LICENSE",
+    "files": [
+      "LICENSE-jakarta-mail-api.txt"
+    ]
+  },
+  "jakarta-xml-bind-api@4.0.6-12.vb_1833c1231d3": {
+    "source": "https://github.com/jenkinsci/jakarta-xml-bind-api-plugin/blob/b1833c1231d3cd65ab95f13e3ed6d099aa10e996/LICENSE",
+    "files": [
+      "LICENSE-jakarta-activation-api.txt"
+    ]
+  },
+  "javax-activation-api@1.2.0-8": {
+    "source": "https://github.com/jenkinsci/javax-activation-api-plugin/blob/e924d05219fb9bab23f08a27fd9b5186a06ec4f6/LICENSE",
+    "files": [
+      "LICENSE-javax-activation-api.txt"
+    ]
+  },
+  "jaxb@2.3.9-143.v5979df3304e6": {
+    "source": "https://github.com/jenkinsci/jaxb-plugin/tree/5979df3304e6b53dc4272759bccda65e8a6c4a36",
+    "files": [
+      "LICENSE-MIT.txt"
+    ]
+  },
+  "joda-time-api@2.12.7-29.v5a_b_e3a_82269a_": {
+    "source": "https://github.com/jenkinsci/joda-time-api-plugin/blob/5abe3a82269af7c7b951740787cadafd37948c3e/LICENSE.md",
+    "files": [
+      "LICENSE-gson-api.txt"
+    ]
+  },
+  "json-api@20250517-173.v596efb_962a_31": {
+    "source": "https://github.com/jenkinsci/json-api-plugin/blob/596efb962a310bfa34885fc7169a0de76a215b98/LICENSE.md",
+    "files": [
+      "LICENSE-json-api.txt"
+    ]
+  },
+  "mailer@534.v1b_36f5864073": {
+    "source": "https://github.com/jenkinsci/mailer-plugin/tree/1b36f58640735544791a3c5c95196c0c9e316e8c",
+    "files": [
+      "LICENSE-MIT.txt"
+    ],
+    "copyright": "Copyright (c) 2004-2009, Sun Microsystems, Inc., Kohsuke Kawaguchi\nCopyright (c) 2004-2009, Sun Microsystems, Inc., Kohsuke Kawaguchi, Daniel Dyer\nCopyright (c) 2004-2009, Sun Microsystems, Inc., Kohsuke Kawaguchi, Erik Ramfelt, Seiji Sogabe\nCopyright (c) 2004-2009, Sun Microsystems, Inc., Kohsuke Kawaguchi, Luca Domenico Milanesio\nCopyright (c) 2004-2009, Sun Microsystems, Inc., Kohsuke Kawaguchi, Mudiaga Obada\nCopyright (c) 2004-2010, Sun Microsystems, Inc., Kohsuke Kawaguchi, Bruce Chapman, Daniel Dyer, Jean-Baptiste Quenot\nCopyright (c) 2004-2011, Sun Microsystems, Inc., Kohsuke Kawaguchi, Bruce Chapman, Erik Ramfelt, Jean-Baptiste Quenot, Luca Domenico Milanesio\nCopyright (c) 2004-2018, Sun Microsystems, Inc., CloudBees, Inc."
+  },
+  "matrix-auth@3.3": {
+    "source": "https://github.com/jenkinsci/matrix-auth-plugin/blob/8c54198ce5aeb3c7e32deeb73659daf481f2100d/LICENSE.md",
+    "files": [
+      "LICENSE-matrix-auth.txt"
+    ]
+  },
+  "mina-sshd-api-common@2.17.1-187.v0341274c2905": {
+    "source": "https://github.com/jenkinsci/mina-sshd-api-plugin/blob/0341274c2905cbba9892c8f121c93bc05f40aed5/LICENSE",
+    "files": [
+      "LICENSE-mina-sshd-api-common.txt"
+    ]
+  },
+  "mina-sshd-api-core@2.17.1-187.v0341274c2905": {
+    "source": "https://github.com/jenkinsci/mina-sshd-api-plugin/blob/0341274c2905cbba9892c8f121c93bc05f40aed5/LICENSE",
+    "files": [
+      "LICENSE-mina-sshd-api-common.txt"
+    ]
+  },
+  "pipeline-build-step@601.v6d4c6d1a_9dc7": {
+    "source": "https://github.com/jenkinsci/pipeline-build-step-plugin/tree/6d4c6d1a9dc74711f22db422bc3cb97a48f72d53",
+    "files": [
+      "LICENSE-MIT.txt"
+    ],
+    "copyright": "Copyright 2014 Jesse Glick.\nCopyright 2016 CloudBees, Inc.\nCopyright 2019 CloudBees, Inc."
+  },
+  "pipeline-graph-analysis@231.v56354571a_da_0": {
+    "source": "https://github.com/jenkinsci/pipeline-graph-analysis-plugin/blob/56354571ada00ac0b5a08e9c000ef1de5a3f81bb/LICENSE",
+    "files": [
+      "LICENSE-pipeline-graph-analysis.txt"
+    ]
+  },
+  "pipeline-groovy-lib@806.v408277b_33d1d": {
+    "source": "https://github.com/jenkinsci/pipeline-groovy-lib-plugin/blob/408277b33d1d2ff0e05c7272f54e942b7046cd81/LICENSE",
+    "files": [
+      "LICENSE-pipeline-groovy-lib.txt"
+    ]
+  },
+  "pipeline-input-step@513.v7eb_fe7e2c0fc": {
+    "source": "https://github.com/jenkinsci/pipeline-input-step-plugin/tree/7ebfe7e2c0fca50ff63922a6c164d54b95bfa2e9",
+    "files": [
+      "LICENSE-MIT.txt"
+    ],
+    "copyright": "Copyright (c) 2013-2014, CloudBees, Inc.\nCopyright (c) 2017, CloudBees, Inc.\nCopyright 2014 Jesse Glick.\nCopyright 2016 CloudBees, Inc."
+  },
+  "pipeline-milestone-step@119.vdfdc43fc3b_9a_": {
+    "source": "https://github.com/jenkinsci/pipeline-milestone-step-plugin/tree/dfdc43fc3b9aeae2cf752a582e8f55e8af011b98",
+    "files": [
+      "LICENSE-MIT.txt"
+    ],
+    "copyright": "Copyright (c) 2016, CloudBees, Inc.\nCopyright 2016 CloudBees, Inc."
+  },
+  "pipeline-model-api@2.2218.v56d0cda_37c72": {
+    "source": "https://github.com/jenkinsci/pipeline-model-definition-plugin/tree/56d0cda37c726c9405c7f24f0fece00672439068",
+    "files": [
+      "LICENSE-MIT.txt"
+    ],
+    "copyright": "Copyright (c) 2016, CloudBees, Inc.\nCopyright (c) 2016-2018, CloudBees, Inc.\nCopyright (c) 2017, CloudBees, Inc.\nCopyright (c) 2018, CloudBees, Inc.\nCopyright (c) 2019, CloudBees, Inc.\nCopyright (c) 2019, CloudBees, Inc., Elasticsearch B.V.\nCopyright (c) 2020, CloudBees, Inc.\nCopyright (c) 2021, CloudBees, Inc.\nCopyright 2016 CloudBees, Inc.\nCopyright 2019 CloudBees, Inc.\nCopyright 2022 CloudBees, Inc.\nCopyright 2024 CloudBees, Inc."
+  },
+  "pipeline-model-definition@2.2218.v56d0cda_37c72": {
+    "source": "https://github.com/jenkinsci/pipeline-model-definition-plugin/tree/56d0cda37c726c9405c7f24f0fece00672439068",
+    "files": [
+      "LICENSE-MIT.txt"
+    ],
+    "copyright": "Copyright (c) 2016, CloudBees, Inc.\nCopyright (c) 2016-2018, CloudBees, Inc.\nCopyright (c) 2017, CloudBees, Inc.\nCopyright (c) 2018, CloudBees, Inc.\nCopyright (c) 2019, CloudBees, Inc.\nCopyright (c) 2019, CloudBees, Inc., Elasticsearch B.V.\nCopyright (c) 2020, CloudBees, Inc.\nCopyright (c) 2021, CloudBees, Inc.\nCopyright 2016 CloudBees, Inc.\nCopyright 2019 CloudBees, Inc.\nCopyright 2022 CloudBees, Inc.\nCopyright 2024 CloudBees, Inc."
+  },
+  "pipeline-model-extensions@2.2218.v56d0cda_37c72": {
+    "source": "https://github.com/jenkinsci/pipeline-model-definition-plugin/tree/56d0cda37c726c9405c7f24f0fece00672439068",
+    "files": [
+      "LICENSE-MIT.txt"
+    ],
+    "copyright": "Copyright (c) 2016, CloudBees, Inc.\nCopyright (c) 2016-2018, CloudBees, Inc.\nCopyright (c) 2017, CloudBees, Inc.\nCopyright (c) 2018, CloudBees, Inc.\nCopyright (c) 2019, CloudBees, Inc.\nCopyright (c) 2019, CloudBees, Inc., Elasticsearch B.V.\nCopyright (c) 2020, CloudBees, Inc.\nCopyright (c) 2021, CloudBees, Inc.\nCopyright 2016 CloudBees, Inc.\nCopyright 2019 CloudBees, Inc.\nCopyright 2022 CloudBees, Inc.\nCopyright 2024 CloudBees, Inc."
+  },
+  "pipeline-rest-api@2.41": {
+    "source": "https://github.com/jenkinsci/pipeline-stage-view-plugin/blob/1f949d2945bd5e9149466966ad0f34bf66601362/LICENSE",
+    "files": [
+      "LICENSE-pipeline-rest-api.txt"
+    ]
+  },
+  "pipeline-stage-step@312.v8cd10304c27a_": {
+    "source": "https://github.com/jenkinsci/pipeline-stage-step-plugin/tree/8cd10304c27a36009f99ecd942797e2762882b1a",
+    "files": [
+      "LICENSE-MIT.txt"
+    ],
+    "copyright": "Copyright 2014 Jesse Glick.\nCopyright 2016 CloudBees, Inc."
+  },
+  "pipeline-stage-tags-metadata@2.2218.v56d0cda_37c72": {
+    "source": "https://github.com/jenkinsci/pipeline-model-definition-plugin/tree/56d0cda37c726c9405c7f24f0fece00672439068",
+    "files": [
+      "LICENSE-MIT.txt"
+    ],
+    "copyright": "Copyright (c) 2016, CloudBees, Inc.\nCopyright (c) 2016-2018, CloudBees, Inc.\nCopyright (c) 2017, CloudBees, Inc.\nCopyright (c) 2018, CloudBees, Inc.\nCopyright (c) 2019, CloudBees, Inc.\nCopyright (c) 2019, CloudBees, Inc., Elasticsearch B.V.\nCopyright (c) 2020, CloudBees, Inc.\nCopyright (c) 2021, CloudBees, Inc.\nCopyright 2016 CloudBees, Inc.\nCopyright 2019 CloudBees, Inc.\nCopyright 2022 CloudBees, Inc.\nCopyright 2024 CloudBees, Inc."
+  },
+  "pipeline-stage-view@2.41": {
+    "source": "https://github.com/jenkinsci/pipeline-stage-view-plugin/blob/1f949d2945bd5e9149466966ad0f34bf66601362/LICENSE",
+    "files": [
+      "LICENSE-pipeline-rest-api.txt"
+    ]
+  },
+  "plain-credentials@199.v9f8e1f741799": {
+    "source": "https://github.com/jenkinsci/plain-credentials-plugin/tree/9f8e1f7417994d4b0dcd783778fb0eb0a0f84691",
+    "files": [
+      "LICENSE-MIT.txt"
+    ],
+    "copyright": "Copyright 2013 jglick.\nCopyright 2013-2016 Jesse Glick, Stephen Connolly and CloudBees, Inc."
+  },
+  "scm-api@728.vc30dcf7a_0df5": {
+    "source": "https://github.com/jenkinsci/scm-api-plugin/tree/c30dcf7a0df552424715396c2279ca268a1ec91b",
+    "files": [
+      "LICENSE-MIT.txt"
+    ],
+    "copyright": "Copyright (c) 2004-2010, Sun Microsystems, Inc., Kohsuke Kawaguchi, CloudBees, Inc.\nCopyright (c) 2011-2013, CloudBees, Inc., Stephen Connolly.\nCopyright (c) 2011-2016, CloudBees, Inc., Stephen Connolly.\nCopyright (c) 2011-2017, CloudBees, Inc., Stephen Connolly.\nCopyright (c) 2015-2016 CloudBees, Inc.\nCopyright (c) 2016 CloudBees, Inc.\nCopyright (c) 2016, CloudBees, Inc.\nCopyright (c) 2016, CloudBees, Inc., Stephen Connolly.\nCopyright (c) 2016-2017 CloudBees, Inc.\nCopyright (c) 2017 CloudBees, Inc.\nCopyright (c) 2017, CloudBees, Inc.\nCopyright (c) 2017, CloudBees, Inc..\nCopyright 2015 CloudBees, Inc.\nCopyright 2016 CloudBees, Inc."
+  },
+  "script-security@1436.1438.v3dc5ef7d16f2": {
+    "source": "https://github.com/jenkinsci/script-security-plugin/tree/3dc5ef7d16f2c758d0ac26f3eabbb6eb9ca51b7e",
+    "files": [
+      "LICENSE-MIT.txt"
+    ],
+    "copyright": "Copyright (c) 2014 IKEDA Yasuyuki\nCopyright (c) 2018, CloudBees, Inc.\nCopyright 2014 CloudBees, Inc.\nCopyright 2014 Jesse Glick.\nCopyright 2017 CloudBees, Inc.\nCopyright 2019 CloudBees, Inc.\nCopyright 2026 CloudBees, Inc."
+  },
+  "snakeyaml-api@2.5-149.v72471e9c6371": {
+    "source": "https://github.com/jenkinsci/snakeyaml-api-plugin/blob/72471e9c63711f4905d674fea5051fbf0908516d/LICENSE.txt",
+    "files": [
+      "LICENSE-snakeyaml-api.txt"
+    ]
+  },
+  "ssh-credentials@361.vb_f6760818e8c": {
+    "source": "https://github.com/jenkinsci/ssh-credentials-plugin/blob/bf6760818e8c81e129bcb95dd4256f6aae541f39/LICENSE.txt",
+    "files": [
+      "LICENSE-credentials.txt"
+    ]
+  },
+  "structs@362.va_b_695ef4fdf9": {
+    "source": "https://github.com/jenkinsci/structs-plugin/tree/ab695ef4fdf93efdb2ee05f440ca4c192417eedc",
+    "files": [
+      "LICENSE-MIT.txt"
+    ],
+    "copyright": "Copyright 2019 CloudBees, Inc."
+  },
+  "variant@70.va_d9f17f859e0": {
+    "source": "https://github.com/jenkinsci/variant-plugin/tree/ad9f17f859e045b79eb5989c0fbd0ff7648639ac",
+    "files": [
+      "LICENSE-MIT.txt"
+    ]
+  },
+  "woodstox-core-api@7.1.1-1.v4d297985f397": {
+    "source": "https://github.com/jenkinsci/woodstox-core-api-plugin/blob/4d297985f39740724324d9c0c1a1cbf03f892043/LICENSE.md",
+    "files": [
+      "LICENSE-commons-lang3-api.txt"
+    ]
+  },
+  "workflow-aggregator@608.v67378e9d3db_1": {
+    "source": "https://github.com/jenkinsci/workflow-aggregator-plugin/tree/67378e9d3db1cf90d2061005463009a3f7616439",
+    "files": [
+      "LICENSE-MIT.txt"
+    ],
+    "copyright": "Copyright (c) 2013-2014, CloudBees, Inc."
+  },
+  "workflow-api@1413.v2ff1a_5e720fa_": {
+    "source": "https://github.com/jenkinsci/workflow-api-plugin/blob/2ff1a5e720fa922f5e59e1fc32c10b6dafa06aa8/LICENSE",
+    "files": [
+      "LICENSE-workflow-api.txt"
+    ]
+  },
+  "workflow-basic-steps@1058.vcb_fc1e3a_21a_9": {
+    "source": "https://github.com/jenkinsci/workflow-basic-steps-plugin/tree/cbfc1e3a21a989db5a1c6537638c6a052dd04d82",
+    "files": [
+      "LICENSE-MIT.txt"
+    ],
+    "copyright": "Copyright (c) 2013-2014, CloudBees, Inc.\nCopyright 2014 Jesse Glick.\nCopyright 2015 Bastian Echterhoelter.\nCopyright 2015 CloudBees, Inc.\nCopyright 2015 Cloudbees, Inc.\nCopyright 2015 Jesse Glick.\nCopyright 2016 CloudBees, Inc.\nCopyright 2019 CloudBees, Inc.\nCopyright 2022 CloudBees, Inc."
+  },
+  "workflow-cps@4403.4405.va_b_cdb_b_d0b_89f": {
+    "source": "https://github.com/jenkinsci/workflow-cps-plugin/tree/abcdbbd0b89fa4e054c31ee30cb5c23e8296301d",
+    "files": [
+      "LICENSE-MIT.txt"
+    ],
+    "copyright": "Copyright (c) 2013-2014, CloudBees, Inc.\nCopyright (c) 2015, CloudBees, Inc.\nCopyright (c) 2016, CloudBees, Inc.\nCopyright (c) 2017, CloudBees, Inc.\nCopyright (c) 2018, CloudBees, Inc.\nCopyright (c) 2020, CloudBees, Inc.\nCopyright (c) 2024, CloudBees, Inc.\nCopyright (c) 2026, Jan Faracik\nCopyright 2014 Jesse Glick.\nCopyright 2015 Jesse Glick.\nCopyright 2016 CloudBees, Inc.\nCopyright 2018 CloudBees, Inc.\nCopyright 2020 CloudBees, Inc.\nCopyright 2022 CloudBees, Inc.\nCopyright 2024 CloudBees, Inc.\nCopyright 2026, Jan Faracik"
+  },
+  "workflow-durable-task-step@1398.vf6c9e89e5988": {
+    "source": "https://github.com/jenkinsci/workflow-durable-task-step-plugin/tree/f6c9e89e5988880ad04890e8ca85c290f79bf929",
+    "files": [
+      "LICENSE-MIT.txt"
+    ],
+    "copyright": "Copyright (c) 2013-2014, CloudBees, Inc.\nCopyright 2014 Jesse Glick.\nCopyright 2016 CloudBees, Inc.\nCopyright 2017 Gabriel Loewen\nCopyright 2019 CloudBees, Inc.\nCopyright 2021 CloudBees, Inc.\nCopyright 2022 CloudBees, Inc."
+  },
+  "workflow-job@1571.1580.v18e46842c125": {
+    "source": "https://github.com/jenkinsci/workflow-job-plugin/blob/18e46842c1252a154f281a7fe370741fc73fdd97/LICENSE",
+    "files": [
+      "LICENSE-workflow-job.txt"
+    ]
+  },
+  "workflow-multibranch@842.v3a_b_59b_57b_e6e": {
+    "source": "https://github.com/jenkinsci/workflow-multibranch-plugin/tree/3ab59b57be6e59ebfa0e273a5743b02529476334",
+    "files": [
+      "LICENSE-MIT.txt"
+    ],
+    "copyright": "Copyright (c) 2016, CloudBees, Inc.\nCopyright (c) 2017 CloudBees, Inc.\nCopyright (c) 2017, CloudBees, Inc.\nCopyright (c) 2017, CloudBees, inc.\nCopyright 2015 CloudBees, Inc.\nCopyright 2015, CloudBees, Inc.\nCopyright 2016 CloudBees, Inc.\nCopyright 2017 CloudBees, Inc."
+  },
+  "workflow-scm-step@487.v41313a_96b_65d": {
+    "source": "https://github.com/jenkinsci/workflow-scm-step-plugin/tree/41313a96b65d8b95858da60577e98d1a5ce452ab",
+    "files": [
+      "LICENSE-MIT.txt"
+    ],
+    "copyright": "Copyright 2014 Jesse Glick.\nCopyright 2025 CloudBees, Inc."
+  },
+  "workflow-step-api@724.v538c2362b_dfb_": {
+    "source": "https://github.com/jenkinsci/workflow-step-api-plugin/blob/538c2362bdfb63d61b2838b3de78427557db7172/LICENSE",
+    "files": [
+      "LICENSE-workflow-step-api.txt"
+    ]
+  },
+  "workflow-support@1015.v785e5a_b_b_8b_22": {
+    "source": "https://github.com/jenkinsci/workflow-support-plugin/tree/785e5abb8b22bce6ce5358f45732e7291fde1cce",
+    "files": [
+      "LICENSE-MIT.txt"
+    ],
+    "copyright": "Copyright (c) 2004-2009, Sun Microsystems, Inc., Kohsuke Kawaguchi\nCopyright (c) 2004-2009, Sun Microsystems, Inc., Kohsuke Kawaguchi, Martin Eigenbrodt\nCopyright (c) 2013-2014, CloudBees, Inc.\nCopyright (c) 2016, CloudBees, Inc.\nCopyright (c) 2017, CloudBees, Inc.\nCopyright 2014 Jesse Glick.\nCopyright 2015 CloudBees, Inc.\nCopyright 2015 Jesse Glick.\nCopyright 2017 CloudBees, Inc.\nCopyright 2018 CloudBees, Inc."
+  }
+}
