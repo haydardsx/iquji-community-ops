@@ -73,6 +73,12 @@ def main():
         artifacts.append(file)
         checksums.append(line)
     notes = (
+        "iQuji Ops is **Source Available**. Individuals may use the unmodified software free of charge "
+        "for personal, noncommercial purposes. Company, organization or team use, modification, "
+        "redistribution and commercial use require separate permission.\n\n"
+        "iQuji Ops 采用**源码可见许可**。个人可免费原样使用本软件，用于个人非商业用途。"
+        "公司、组织或团队使用，以及修改、再分发和商业使用，均须取得单独许可。"
+        f"[License／许可正文](https://github.com/{os.environ['GITHUB_REPOSITORY']}/blob/{tag}/LICENSE)\n\n"
         "Download the installer for your operating system and architecture.\n\n"
         "- macOS: choose the arm64 DMG for Apple silicon or the x64 DMG for Intel. "
         "These builds use an ad-hoc signature and have no Apple notarization.\n"
