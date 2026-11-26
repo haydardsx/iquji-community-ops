@@ -130,17 +130,40 @@ def verify_plugins(resources, notices):
 
 def check_build_paths(files):
     # 找出本次构建的真实目录，即使二进制以 UTF-16 保存路径也须检出。
-    paths = {Path.cwd(), Path.home()}
+    paths = {"workspace": Path.cwd(), "profile": Path.home()}
     for key in ["RUNNER_TEMP", "CARGO_HOME", "RUSTUP_HOME"]:
         if os.environ.get(key):
-            paths.add(Path(os.environ[key]))
-    needles = {value.encode(encoding) for path in paths
+            paths[key] = Path(os.environ[key])
+    needles = {value.encode(encoding): (label, encoding) for label, path in paths.items()
                for value in {str(path), path.as_posix()} for encoding in ("utf8", "utf-16-le")}
     for file in files:
         if file.is_file() and file.stat().st_size:
             with file.open("rb") as stream, mmap.mmap(stream.fileno(), 0, access=mmap.ACCESS_READ) as data:
-                require(all(data.find(needle) == -1 for needle in needles),
-                        "安装包包含构建机目录：" + file.name)
+                for needle, (label, encoding) in needles.items():
+                    offset = data.find(needle)
+                    if offset >= 0:
+                        section = pe_section(data, offset) if file.suffix.lower() == ".exe" else "data"
+                        raise RuntimeError(f"Package contains a build path ({file.name}, {label}, {section}, {encoding})")
+
+
+def pe_section(data, offset):
+    # 诊断仅报告预定义的段名或 PDB 记录类型，不输出匹配路径或二进制原文。
+    if offset >= 24 and data[offset - 24:offset - 20] == b"RSDS":
+        return "CodeView-PDB"
+    if data[:2] == b"MZ":
+        pe = int.from_bytes(data[60:64], "little")
+        count = int.from_bytes(data[pe + 6:pe + 8], "little")
+        first = pe + 24 + int.from_bytes(data[pe + 20:pe + 22], "little")
+        for i in range(count):
+            row = data[first + 40 * i:first + 40 * (i + 1)]
+            if len(row) != 40:
+                break
+            size = int.from_bytes(row[16:20], "little")
+            start = int.from_bytes(row[20:24], "little")
+            name = row[:8].rstrip(b"\x00")
+            if start <= offset < start + size and name in (b".rdata", b".text", b".data", b".rsrc"):
+                return name.decode("ascii")
+    return "other"
 
 
 def verify_resources(host, resources, config):

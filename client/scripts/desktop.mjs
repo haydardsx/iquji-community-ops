@@ -37,6 +37,8 @@ export function desktopEnvironment(command, environment = process.env) {
   const mappings = [
     [home, "<home>"],
     [temporary, "<tmp>"],
+    ...(environment.USERPROFILE ? [[environment.USERPROFILE, "<home>"]] : []),
+    ...(environment.RUNNER_TEMP ? [[environment.RUNNER_TEMP, "<tmp>"]] : []),
     [environment.CARGO_HOME || path.join(home, ".cargo"), "<cargo>"],
     [environment.RUSTUP_HOME || path.join(home, ".rustup"), "<rustup>"],
     [environment.CARGO_TARGET_DIR || path.join(desktopRoot, "target"), "<target>"],
@@ -51,8 +53,23 @@ export function desktopEnvironment(command, environment = process.env) {
   const flags = [...prefixes.entries()]
     .sort(([left], [right]) => left.length - right.length)
     .map(([prefix, target]) => `--remap-path-prefix=${prefix}=${target}`);
+  const native = {};
+  if (process.platform === "win32") {
+    // MSVC 链接器默认会把 PDB 的绝对路径写入 PE 的 CodeView 记录。
+    flags.push("-Clink-arg=/PDBALTPATH:%_PDB%", "-Clink-arg=/Brepro");
+    // AWS-LC 的 cl 模式不自动映射 __FILE__；clang-cl 能在编译 C 源码时完成映射。
+    native.AWS_LC_SYS_CC = "clang-cl";
+    native.CC_SHELL_ESCAPED_FLAGS = "1";
+    const mapped = [...prefixes.entries()].flatMap(([prefix, target]) =>
+      [...new Set([prefix, prefix.replaceAll("\\", "/")])].map(
+        (source) => `'/clang:-ffile-prefix-map=${source}=${target}'`,
+      ),
+    );
+    native.AWS_LC_SYS_CFLAGS = [environment.AWS_LC_SYS_CFLAGS, ...mapped].filter(Boolean).join(" ");
+  }
   return {
     ...environment,
+    ...native,
     CARGO_ENCODED_RUSTFLAGS: [previous, ...flags].filter(Boolean).join(separator),
   };
 }
