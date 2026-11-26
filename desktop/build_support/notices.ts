@@ -124,6 +124,9 @@ function rustNotices() {
     if (p.license_file)
       notices.push(fs.readFileSync(path.resolve(directory, p.license_file), "utf8").trim());
     if (!notices.length) {
+      // 此版本的两个 crate 只在上游仓库根目录提供 MIT 正文。
+      if (["webview2-com@0.38.2", "webview2-com-sys@0.38.2"].includes(id))
+        notices.push(supplemental("webview2-rs-MIT.txt"));
       if (id === "alloc-stdlib@0.2.4") notices.push(supplemental("alloc-stdlib-BSD.txt"));
       if (id === "dlopen2@0.8.2") notices.push(supplemental("dlopen2-MIT.txt"));
       if (p.repository === "https://github.com/madsmtm/objc2") {
@@ -145,6 +148,9 @@ function rustNotices() {
         ...licenseTexts(path.join(directory, "aws-lc/third_party/fiat")),
       );
     }
+    // Windows 静态链接的 WebView2 Loader 随微软 SDK 使用独立的再分发许可。
+    if (id === "webview2-com-sys@0.38.2" && target.includes("windows"))
+      notices.push(supplemental("WebView2-SDK-LICENSE.txt"));
     index.add("cargo:" + id, notices);
   }
 }
