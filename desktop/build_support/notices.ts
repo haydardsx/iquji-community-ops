@@ -148,6 +148,9 @@ function rustNotices() {
         ...licenseTexts(path.join(directory, "aws-lc/third_party/fiat")),
       );
     }
+    // Windows 静态链接的 WebView2 Loader 随微软 SDK 使用独立的再分发许可。
+    if (id === "webview2-com-sys@0.38.2" && target.includes("windows"))
+      notices.push(supplemental("WebView2-SDK-LICENSE.txt"));
     index.add("cargo:" + id, notices);
   }
 }
